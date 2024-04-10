@@ -15,8 +15,8 @@ TODO: <br>
 · [...] <br>
 
 
-
-// UNDER CONSTRUCTION...
+<br><br>
+// UNDER CONSTRUCTION...<br><br><br>
 
 
 
@@ -25,3 +25,14 @@ Technologies used:<br>
 Domain Host: No-IP<br>
 XAMPP - Apache testing, Database and a nexus on where to store files, apps and everything<br>
 HTML5 & CSS (Sass or Bootstrap): To create the webpage<br>
+
+<br><br>
+
+Steps:
+1. Installed XAMPP
+2. Installed Workbench (for a better visual experience)
+3. Check if it can be linked with a NO-IP domain [!in need of testing!]
+4. Check for a videogame API
+5. Create the database
+6. Create some main pages
+7. Try to make any page interact with the database in any way
