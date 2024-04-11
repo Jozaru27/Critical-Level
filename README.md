@@ -1,7 +1,23 @@
 # Critical-Level
-Home repository for the Critical Level Page - a Web Project
+*Home repository for the ***Critical Level*** Page - a Web Project*<br><br>
 
-Critical Level is a web project in which I try to create, through my vision, a functional page in which people can express their thoughts and rankings about games, leaving reviews so other players can watch, read and comment, essentially exchanging information about their favourite games.
+Critical Level is a web project in which I aspire to create, through my vision, a functional page in which people can express their thoughts and rankings about games, leaving reviews so other players can watch, read and comment, essentially exchanging information about their favourite games. 
+
+The page will work as a IMDB-like service, in which people can either check other people's opinions or analysis on videogames, while also having the oportunity to express themselves to other people, and to discuss different aspects.
+
+<br><br>
+### Roadmap / To Do / Steps:
+
+| Status 📍 | Goal 🚀 |
+| :---: | --- |
+| ✔️ | Create repository to document changes and upload files  |
+| ✔️ | Install XAMPP and check if it runs  |
+| ❌ | Obtain a domain and link it with the XAMPP page  |
+| ❌ | Find a good Videogame API / Gather data for the DB |
+| ❌ | Install Workbench and create Database + add some info |
+| ❌ | Create template pages with pure HTML & CSS  |
+| ❌ | Display any DB information within the webpage  |
+| ❓ | PHP for DB/HTML interaction or Node.JS  |
 
 TODO: <br>
 · Download $ Setup XAMPP <br>
