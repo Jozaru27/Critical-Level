@@ -1,6 +1,8 @@
 # Critical-Level
 *Home repository for the ***Critical Level*** Page - a Web Project*<br><br>
 
+![](https://github.com/Jozaru27/Critical-Level/blob/main/welcome.gif)
+
 Critical Level is a web project in which I aspire to create, through my vision, a functional page in which people can express their thoughts and rankings about games, leaving reviews so other players can watch, read and comment, essentially exchanging information about their favourite games. 
 
 The page will work as a IMDB-like service, in which people can either check other people's opinions or analysis on videogames, while also having the oportunity to express themselves to other people, and to discuss different aspects.
