@@ -21,8 +21,6 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ❌ | Display any DB information within the webpage  |
 | ❓ | PHP for DB/HTML interaction or Node.JS  |
 
-Bugs: <img src="https://github.com/Jozaru27/Critical-Level/blob/main/bug.gif" width="30" height="30"/> <img src="https://github.com/Jozaru27/Critical-Level/blob/main/gary" width="30" height="30"/>
-
 TODO: <br>
 · Download $ Setup XAMPP <br>
 · (optional) If MariaDB is not good, swap to MySQL <br>
@@ -56,3 +54,5 @@ Steps:
 5. Create the database
 6. Create some main pages
 7. Try to make any page interact with the database in any way
+
+![](https://github.com/Jozaru27/Critical-Level/blob/main/gary.gif)
