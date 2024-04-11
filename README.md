@@ -1,4 +1,4 @@
-# Critical-Level
+# <img src="https://github.com/Jozaru27/Critical-Level/blob/main/star-spinning.gif" width="30" height="30"/> Critical-Level <img src="https://github.com/Jozaru27/Critical-Level/blob/main/star-spinning.gif" width="30" height="30"/>
 *Home repository for the ***Critical Level*** Page - a Web Project*<br><br>
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/welcome.gif)
