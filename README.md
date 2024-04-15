@@ -10,6 +10,9 @@ The page will work as a IMDB-like service, in which people can either check othe
 > [!WARNING]
 > This project is still being worked on, and so it's its documentation. Please be patient as stuff might be confusing at first!
 
+
+*check shields.io 
+
 <br><br>
 ### Roadmap / To Do / Steps:
 
