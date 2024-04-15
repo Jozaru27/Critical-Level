@@ -40,7 +40,7 @@ manually adding the game, if the use of an API isn't viable.
 
 Now, when it comes to monetization, I would like to go further than annoying ads and/or kickstarters. The page could hold "benefit" products (will have to investigate what could be profitable without it ruining the user's experience). Those benefits could range from either being able to post more reviews or comments a day, being able to have a special supporter badge and name color, accessing restricted parts of the page, such as forums, on-line chats, being able to post guides, or images within the reviews. If there ever is a service like a "Match Making" (yes, a Tinder for gaming buddies), that could too be a paid option. Maybe even the page could hold online events, or promote phyiscal ones which you can only attend to by being a member. This must be explored, but not exploited.
 
-A profile system could be implemented, to check each user's reviews, yes, but too also see a profile picture, short bio, stats like reviews posted, days logged-in, account creation date, or if it's ever implemented, a badge and reward system (posted 10 times, had a review with a score of 100 or more, etc)
+A profile system could be implemented, to check each user's reviews, yes, but to also see a profile picture, short bio, stats like reviews posted, days logged-in, account creation date, or if it's ever implemented, a badge and reward system (posted 10 times, had a review with a score of 100 or more, etc)
 
 <br><br>
 
