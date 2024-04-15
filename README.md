@@ -58,11 +58,11 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 
 <br><br><br>
 
-Technologies used:<br>
+### Technologies used:
 
-Domain Host: No-IP<br>
-XAMPP - Apache testing, Database and a nexus on where to store files, apps and everything<br>
-HTML5 & CSS (Sass or Bootstrap): To create the webpage<br>
+* NO-IP: Webpage hosting, DDNS, domain solving, IP forwarding, etc
+* XAMPP - Apache testing, Database and a nexus on where to store files.
+* HTML5 & CSS (Sass or Bootstrap), JS: To create the webpage
 
 <br><br>
 
