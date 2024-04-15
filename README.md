@@ -1,6 +1,8 @@
 # <img src="https://github.com/Jozaru27/Critical-Level/blob/main/star-spinning.gif" width="30" height="30"/> Critical-Level <img src="https://github.com/Jozaru27/Critical-Level/blob/main/star-spinning.gif" width="30" height="30"/>
 *Home repository for the ***Critical Level*** Page - a Web Project*<br><br>
 
+![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
+
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/welcome.gif)
 
 Critical Level is a web project in which I aspire to create, through my vision, a functional page in which people can express their thoughts and rankings about games, leaving reviews so other players can watch, read and comment, essentially exchanging information about their favourite games. 
@@ -12,6 +14,8 @@ The page will work as a IMDB-like service, in which people can either check othe
 
 
 *check shields.io 
+
+![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 
 <br><br>
 ### Roadmap / To Do / Steps:
@@ -30,6 +34,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 
 * check for automatic moderation??
 
+![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 <br><br>
 
 ### First in depth look at the objective
@@ -45,6 +50,7 @@ Now, when it comes to monetization, I would like to go further than annoying ads
 
 A profile system could be implemented, to check each user's reviews, yes, but to also see a profile picture, short bio, stats like reviews posted, days logged-in, account creation date, or if it's ever implemented, a badge and reward system (posted 10 times, had a review with a score of 100 or more, etc)
 
+![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 <br><br>
 
 ### Roadmap details :
@@ -56,13 +62,14 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 3. Obtain a domain and link it with the XAMPP page
    - After Port-Forwarding, was able to setup a basic domain thats linked with XAMPP (Local PC needs to be running for it to work D:) - DDNS so good it keeps track of my dynamic IP and auto-updates it!
 
+![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 <br><br><br>
 
 ### Technologies used:
 
-* NO-IP: Webpage hosting, DDNS, domain solving, IP forwarding, etc
-* XAMPP - Apache testing, Database and a nexus on where to store files.
-* HTML5 & CSS (Sass or Bootstrap), JS: To create the webpage
+* **NO-IP:** Webpage hosting, DDNS, domain solving, IP forwarding, etc
+* **XAMPP:** Apache testing, Database and a nexus on where to store files.
+* **HTML5 & CSS (Sass or Bootstrap), JS:** To create the webpage
 
 <br><br>
 
