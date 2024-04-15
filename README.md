@@ -7,6 +7,9 @@ Critical Level is a web project in which I aspire to create, through my vision, 
 
 The page will work as a IMDB-like service, in which people can either check other people's opinions or analysis on videogames, while also having the oportunity to express themselves to other people, and to discuss different aspects.
 
+> [!WARNING]
+> This project is still being worked on, and so it's its documentation. Please be patient as stuff might be confusing at first!
+
 <br><br>
 ### Roadmap / To Do / Steps:
 
@@ -41,10 +44,14 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 
 <br><br>
 
-### Roadmap details (GIVE PROPER FORMAT):
-* **Create repository to document changes and upload files:** Always wanted to create patch notes and keep a release history - well, here we are! :)
-* **Install XAMPP and check if it runs:** After not being convinced to use WAMPP, XAMPP seemed the better option to at least host stuff locally, but also to help with the public hosting
-* **Obtain a domain and link it with the XAMPP page:** After Port-Forwarding, was able to setup a basic domain thats linked with XAMPP (Local PC needs to be running for it to work D:) - DDNS so good it keeps track of my dynamic IP and auto-updates it!
+### Roadmap details :
+  
+1. Create repository to document changes and upload files
+   - Always wanted to create patch notes and keep a release history - well, here we are! :)
+2. Install XAMPP and check if it runs
+   - After not being convinced to use WAMPP, XAMPP seemed the better option to at least host stuff locally, but also to help with the public hosting
+3. Obtain a domain and link it with the XAMPP page
+   - After Port-Forwarding, was able to setup a basic domain thats linked with XAMPP (Local PC needs to be running for it to work D:) - DDNS so good it keeps track of my dynamic IP and auto-updates it!
 
 <br><br><br>
 
