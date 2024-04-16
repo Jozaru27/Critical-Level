@@ -40,7 +40,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 
 The goal of this project, is to be able to host a page that hosts an ample selection of videogames, on which the registered or logged in users might be able to post reviews. The reviews will include a numeric score (either 1 to 5 stars, or 0/10 - 10/10, etc).
 Other users, while still being able to post their own reviews, can choose to answer to an already posted review from another user, thus, creating a comment thread, in which they can discuss more profoundly said person's opinion, or add to it, etc.
-That being the basic functionality of the page im trying to achieve, i'd like to delve further within, to cover additional features or techicalities. 
+That being the basic functionality of the page im trying to achieve, i'd like to delve further within, to cover additional features or technicalities. 
 
 There's gonna be at least 2 user types: The admins and the users. While the users will do what was mentioned beforehand, the admins will make sure that the page functions correctly, check for manual moderation in the comments section and the reviews, as well as
 manually adding the game, if the use of an API isn't viable. 
