@@ -16,7 +16,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 
 <br><br>
-### Roadmap / To Do / Steps:
+### Roadmap / To Do / Steps
 
 | Status 📍 | Goal 🚀 |
 | :---: | --- |
@@ -54,7 +54,7 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 <br><br>
 
-### Roadmap details :
+### Roadmap details
   
 1. Create repository to document changes and upload files
    - Always wanted to create patch notes and keep a release history - well, here we are! :)
@@ -66,7 +66,7 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 <br><br><br>
 
-### Technologies used:
+### Technologies used
 
 * **NO-IP:** Webpage hosting, DDNS, domain solving, IP forwarding, etc
 * **XAMPP:** Apache testing, Database and a nexus on where to store files.
