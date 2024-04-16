@@ -32,6 +32,8 @@ The page will work as a IMDB-like service, in which people can either check othe
 
 * check for automatic moderation??
 * Videogame API's in need of checking: SteamWebAPI, IGDB, RAWG, Launchbox, Openretro, MobyGames, Metropolis Launcher, Screenscraper, Skraper, TheGamesDB, GameTDB, Giant Bomb
+* Load 5 dynamic divs from a set of videogames for each page reload
+* How to make each page for each videogame? Its gonna be crazy! If you load them pages dynamically, how do you even load de IDS?
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 <br><br>
