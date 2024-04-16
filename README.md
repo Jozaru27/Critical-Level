@@ -1,5 +1,6 @@
-# <img src="https://github.com/Jozaru27/Critical-Level/blob/main/star-spinning.gif" width="30" height="30"/> Critical-Level <img src="https://github.com/Jozaru27/Critical-Level/blob/main/star-spinning.gif" width="30" height="30"/>
-*Home repository for the ***Critical Level*** Page - a Web Project*<br><br>
+# <img src="https://github.com/Jozaru27/Critical-Level/blob/main/star-spinning.gif" width="30" height="30"/> Critical-Level <img src="https://github.com/Jozaru27/Critical-Level/blob/main/star-spinning.gif" width="30" height="30"/> ![version 0.0.1](https://img.shields.io/badge/version-0.0.1-brightgreen)
+<!-- BADGE TAKEN FROM: https://tekiter.github.io/shields-craft/ -->
+*Home repository for the ***Critical Level*** Page - a Web Project* <br><br>
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 
