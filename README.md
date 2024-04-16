@@ -33,6 +33,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ❓ | PHP for DB/HTML interaction or Node.JS  |
 
 * check for automatic moderation??
+* Videogame API's in need of checking: SteamWebAPI, IGDB, RAWG, Launchbox, Openretro, MobyGames, Metropolis Launcher, Screenscraper, Skraper, TheGamesDB, GameTDB, Giant Bomb
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/separator.png)
 <br><br>
