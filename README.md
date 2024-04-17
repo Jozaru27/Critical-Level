@@ -23,7 +23,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ✔️ | Create repository to document changes and upload files  |
 | ✔️ | Install XAMPP and check if it runs  |
 | ✔️ | Obtain a domain and link it with the XAMPP page  |
-| ❌ | Find a good Videogame API / Gather data for the DB |
+| ✔️ | Find a good Videogame API - RAWG |
 | ❌ | Install Workbench and create Database + add some info |
 | ❌ | Create template pages with pure HTML & CSS  |
 | ❌ | Display any DB information within the webpage  |
