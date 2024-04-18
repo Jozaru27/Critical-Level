@@ -16,7 +16,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 
 <br><br>
-## Roadmap / To Do / Steps
+## Roadmap / To Do / Steps <img src="https://github.com/Jozaru27/Critical-Level/blob/main/media/mario.gif" width="42" height="42"/>
 
 | Status 📍 | Goal 🚀 |
 | :---: | --- |
