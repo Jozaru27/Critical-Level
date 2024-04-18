@@ -35,6 +35,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 * Load 5 dynamic divs from a set of videogames for each page reload
 * How to make each page for each videogame? Its gonna be crazy! If you load them pages dynamically, how do you even load de IDS?
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
+* check for landing page - AOS too: https://medium.com/@tajammalmaqbool11/how-you-can-make-animated-landing-page-using-html-css-and-js-754fd9558dc6
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br>
