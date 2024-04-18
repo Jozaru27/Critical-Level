@@ -34,11 +34,12 @@ The page will work as a IMDB-like service, in which people can either check othe
 * Videogame API's in need of checking: SteamWebAPI, IGDB, RAWG, Launchbox, Openretro, MobyGames, Metropolis Launcher, Screenscraper, Skraper, TheGamesDB, GameTDB, Giant Bomb
 * Load 5 dynamic divs from a set of videogames for each page reload
 * How to make each page for each videogame? Its gonna be crazy! If you load them pages dynamically, how do you even load de IDS?
+* imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br>
 
-### First in depth look at the objective
+### First in depth look at the objective 🎯
 
 The goal of this project, is to be able to host a page that hosts an ample selection of videogames, on which the registered or logged in users might be able to post reviews. The reviews will include a numeric score (either 1 to 5 stars, or 0/10 - 10/10, etc).
 Other users, while still being able to post their own reviews, can choose to answer to an already posted review from another user, thus, creating a comment thread, in which they can discuss more profoundly said person's opinion, or add to it, etc.
@@ -54,25 +55,26 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br>
 
-### Roadmap details
+### Roadmap details 🗺️
   
-1. Create repository to document changes and upload files
+### 1. Create repository to document changes and upload files
    - Always wanted to create patch notes and keep a release history - well, here we are! :)
-2. Install XAMPP and check if it runs
+### 2. Install XAMPP and check if it runs
    - After not being convinced to use WAMPP, XAMPP seemed the better option to at least host stuff locally, but also to help with the public hosting
-3. Obtain a domain and link it with the XAMPP page
+### 3. Obtain a domain and link it with the XAMPP page
    - After Port-Forwarding, was able to setup a basic domain thats linked with XAMPP (Local PC needs to be running for it to work D:) - DDNS so good it keeps track of my dynamic IP and auto-updates it!
-4. Find a good Videogame API - RAWG
+### 4. Find a good Videogame API - RAWG
    - Found a proper API that provides all necessary information and more on videogames, including technical and developer information. RAWG was kind enough to provide an API key with 20000 monthly uses
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br><br>
 
-### Technologies used
+### Technologies used ⚙️
 
 * **NO-IP:** Webpage hosting, DDNS, domain solving, IP forwarding, etc
 * **XAMPP:** Apache testing, Database and a nexus on where to store files.
 * **HTML5 & CSS (Sass or Bootstrap), JS:** To create the webpage
+* **API - RAWG:** To obtain videogame data and such
 
 <br><br>
 
