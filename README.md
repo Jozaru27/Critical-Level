@@ -62,6 +62,8 @@ A profile system could be implemented, to check each user's reviews, yes, but to
    - After not being convinced to use WAMPP, XAMPP seemed the better option to at least host stuff locally, but also to help with the public hosting
 3. Obtain a domain and link it with the XAMPP page
    - After Port-Forwarding, was able to setup a basic domain thats linked with XAMPP (Local PC needs to be running for it to work D:) - DDNS so good it keeps track of my dynamic IP and auto-updates it!
+4. Find a good Videogame API - RAWG
+   - Found a proper API that provides all necessary information and more on videogames, including technical and developer information. RAWG was kind enough to provide an API key with 20000 monthly uses
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br><br>
