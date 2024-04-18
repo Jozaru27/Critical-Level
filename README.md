@@ -16,7 +16,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 
 <br><br>
-### Roadmap / To Do / Steps
+## Roadmap / To Do / Steps
 
 | Status 📍 | Goal 🚀 |
 | :---: | --- |
@@ -40,7 +40,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br>
 
-### First in depth look at the objective 🎯
+## First in depth look at the objective 🎯
 
 The goal of this project, is to be able to host a page that hosts an ample selection of videogames, on which the registered or logged in users might be able to post reviews. The reviews will include a numeric score (either 1 to 5 stars, or 0/10 - 10/10, etc).
 Other users, while still being able to post their own reviews, can choose to answer to an already posted review from another user, thus, creating a comment thread, in which they can discuss more profoundly said person's opinion, or add to it, etc.
@@ -56,7 +56,9 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br>
 
-### Roadmap details 🗺️
+
+## Roadmap details 🗺️
+  
   
 ### 1. Create repository to document changes and upload files
    - Always wanted to create patch notes and keep a release history - well, here we are! :)
@@ -70,7 +72,7 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br><br>
 
-### Technologies used ⚙️
+## Technologies used ⚙️
 
 * **NO-IP:** Webpage hosting, DDNS, domain solving, IP forwarding, etc
 * **XAMPP:** Apache testing, Database and a nexus on where to store files.
