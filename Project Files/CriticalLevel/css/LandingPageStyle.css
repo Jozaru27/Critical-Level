@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', Arial, sans-serif;
+    background: linear-gradient(90.6deg, rgb(59, 158, 255) -1.2%, rgb(246, 135, 255) 91.6%); /* Gradient taken from https://gradients.shecodes.io/gradients/29 */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoSlogan {
+    text-align: center;
+    color: white;
+}
+
+.stats {
+    text-align: center;
+    color: white;
+}
+
+
+/* Animations / Transitions */
+/* Logo Hover Animation */
+
+.CL_Logo {
+    transition: transform 0.5s ease; 
+}
+  
+.CL_Logo:hover {
+    transform: scale(0.9); 
+}  

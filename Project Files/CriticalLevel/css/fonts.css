@@ -1,0 +1,9 @@
+/* This css file contains the fonts config for the html files */
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway/static/Raleway-Medium.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
