@@ -31,7 +31,6 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ❓ | PHP for DB/HTML interaction or Node.JS  |
 
 * check for automatic moderation??
-* Videogame API's in need of checking: SteamWebAPI, IGDB, RAWG, Launchbox, Openretro, MobyGames, Metropolis Launcher, Screenscraper, Skraper, TheGamesDB, GameTDB, Giant Bomb
 * Load 5 dynamic divs from a set of videogames for each page reload
 * How to make each page for each videogame? Its gonna be crazy! If you load them pages dynamically, how do you even load de IDS?
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
@@ -68,6 +67,7 @@ A profile system could be implemented, to check each user's reviews, yes, but to
    - After Port-Forwarding, was able to setup a basic domain thats linked with XAMPP (Local PC needs to be running for it to work D:) - DDNS so good it keeps track of my dynamic IP and auto-updates it!
 ### 4. Find a good Videogame API - RAWG
    - Found a proper API that provides all necessary information and more on videogames, including technical and developer information. RAWG was kind enough to provide an API key with 20000 monthly uses
+<!-- Other API's: SteamWebAPI, IGDB, RAWG, Launchbox, Openretro, MobyGames, Metropolis Launcher, Screenscraper, Skraper, TheGamesDB, GameTDB, Giant Bomb--> 
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br><br>
