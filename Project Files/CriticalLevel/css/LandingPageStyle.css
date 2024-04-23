@@ -4,21 +4,83 @@ body {
     font-family: 'Raleway', Arial, sans-serif;
     background: linear-gradient(90.6deg, rgb(59, 158, 255) -1.2%, rgb(246, 135, 255) 91.6%); /* Gradient taken from https://gradients.shecodes.io/gradients/29 */
     height: 100vh;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .logoSlogan {
     text-align: center;
     color: white;
+    margin-top:15vw;
+    margin-bottom: 30vw;
 }
 
+/*Stats Section*/
 .stats {
     text-align: center;
     color: white;
+    margin-bottom: 15vw;
 }
 
+/* Board Section */
+.board{
+    text-align: center;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.boardElement{
+    background-color:rgba(0, 0, 0, 0.250);
+    border-radius: 15px;
+    width: 30%;
+    padding: 1vw;
+    transition: transform 0.5s ease;
+}
+
+.boardElement:hover {
+    transform: scale(1.1);
+}
+
+.board1 {
+    order: 1; 
+}
+  
+.board2 {
+    order: 2; 
+}
+  
+.board3 {
+    order: 3; 
+}
+
+/* Button Section*/
+.button{
+    text-align: center;
+    margin:15vw;
+}
+
+.startButton {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.500);
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    transition: color 0.5s;
+}
+
+.startButton:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+}
 
 /* Animations / Transitions */
 /* Logo Hover Animation */
@@ -30,3 +92,5 @@ body {
 .CL_Logo:hover {
     transform: scale(0.9); 
 }  
+
+/*Vertical Bar */
