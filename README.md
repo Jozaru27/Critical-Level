@@ -26,6 +26,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ✔️ | Find a good Videogame API - RAWG |
 | ❌ | Install Workbench and create Database + add some info |
 | ❌ | Create template pages with pure HTML & CSS  |
+| ❌ | Validate HTML & CSS |
 | ❌ | Display any DB information within the webpage  |
 | ❌ | Test web with ZAP for any security breach |
 | ❓ | PHP for DB/HTML interaction or Node.JS  |
