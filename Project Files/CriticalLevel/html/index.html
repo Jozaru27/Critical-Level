@@ -3,16 +3,79 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../css/fonts.css">
+
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="../css/MainPageStyle.css">
+
+    <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="../media/CL_Logo_Blue_Hex/favicon.ico">
+
+    <!-- Libraries -->
     <link href="../libraries/bootstrap-5.3.3-dist/css/bootstrap-reboot.min.css" rel="stylesheet">
     <script src="../libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 
+    <!-- Script -->
     <script src="../js/script.js"></script>
-
+    
+    <!-- Main Page -->
     <title>Critical Level</title>
   </head>
   <body>
+
+    <!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
+    <nav class="menu-container">
+      <!-- burger menu -->
+      <input type="checkbox" aria-label="Toggle menu" />
+      <span></span>
+      <span></span>
+      <span></span>
+    
+      <!-- logo -->
+      <a href="../../index.html" class="menu-logo">
+        <img src="../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
+      </a>
+    
+      <!-- Navbar Menu -->
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="#">
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Juegos
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Flipes
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Pipes
+            </a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="#">
+              Registro
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Iniciar Sesión
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
     
   <div id="games-list">
     <!-- Aquí se mostrarán los resultados de la API -->
