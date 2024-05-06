@@ -24,6 +24,10 @@ body {
   box-sizing: border-box;
 }
 
+.menu-container ul{
+  margin:0px;
+}
+
 /* Top Left Logo */
 .menu-logo {
   line-height: 0;
