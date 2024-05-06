@@ -9,6 +9,8 @@
 
     <!-- StyleSheets -->
     <link rel="stylesheet" href="../css/MainPageStyle.css">
+    <link rel="stylesheet" href="../css/contactPageStyle.css">
+
 
     <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="../media/CL_Logo_Blue_Hex/favicon.ico">
@@ -24,12 +26,6 @@
     
     <!-- Main Page -->
     <title>Critical Level</title>
-
-    <style>
-      body{
-        background: linear-gradient(90.6deg, rgb(59, 158, 255) -1.2%, rgb(246, 135, 255) 91.6%); /* Gradient taken from https://gradients.shecodes.io/gradients/29 */
-      }
-    </style>
   </head>
   <body>
 
@@ -41,8 +37,37 @@
       </a>Contacto
     </nav>
 
-    <h1>¿Algún problema o duda? Contactanos aunque no tengas cuenta registrada</h1>
+    <h2>¿Algún problema o duda? Contáctanos aunque no tengas cuenta</h2><br>
+    <h5>Revisa nuestra sección de <a href="">FAQ</a> en caso de que tu pregunta ya tenga respuesta</h5><br>
 
+    <div class="content">
+      <form class="contact" method="post"><br>
+      
+        <label for="nombre">Nombre:</label><br><br>
+        <input type="text" id="nombre" name="nombre" required autofocus><br><br>
+
+        <label for="email">Email:</label><br><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="tipoProblema">Tipo de Problema:</label><br><br>
+        <select id="tipoProblema" name="tipoProblema" required><br><br>
+          <option value="general" autofocus>General</option>
+          <option value="comercial">Comercial</option>
+          <option value="moderacionDenuncias">Moderación/Denuncias</option>
+          <option value="otro">Otro</option>
+        </select><br><br>
+
+        <label for="asunto">Asunto:</label><br><br>
+        <input type="text" id="asunto" name="asunto" required><br><br>
+
+        <label for="cuerpo">Cuerpo:</label><br><br>
+        <textarea id="cuerpo" name="cuerpo" rows="4" cols="50" required>
+          Escriba aquí el contenido de su tiquet...
+        </textarea><br><br>
+
+        <input type="button" id="enviar" name="enviar" value="Enviar" class="submitButton">
+      </form>
+    </div>
     
 
     <!-- AÑADIR FOOTER-->
