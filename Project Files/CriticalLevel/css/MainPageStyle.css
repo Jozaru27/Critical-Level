@@ -1,3 +1,7 @@
+*{
+  font-family: 'Raleway', Arial, sans-serif;
+}
+
 /* Body */
 body {
   overflow-x: hidden;
