@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6{
   border-radius: 4px 4px 0 0;
   background: rgb(245, 245, 245);
   height: 56px;
-  width: 300px;
+  width: 330px;
   :hover{
       border-bottom-color: rgba(0,0,0,.87);
       background: #ececec;

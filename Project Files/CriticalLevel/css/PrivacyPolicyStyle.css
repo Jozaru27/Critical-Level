@@ -1,0 +1,14 @@
+body{
+    background: linear-gradient(90.6deg, rgb(59, 158, 255) -1.2%, rgb(246, 135, 255) 91.6%); /* Gradient taken from https://gradients.shecodes.io/gradients/29 */
+}
+
+.minorText{
+    font-size: 12px;
+}
+
+.privacyBoard{
+    margin: 10% 15% 5% 15%;
+    padding: 10px;
+    background-color:rgba(255, 255, 255, 0.500);
+    border-radius: 15px;
+}
