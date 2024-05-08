@@ -93,4 +93,6 @@ body {
     transform: scale(0.9); 
 }  
 
-/*Vertical Bar */
+.content{
+    margin-bottom: 50%;
+}
