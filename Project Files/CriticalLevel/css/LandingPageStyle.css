@@ -86,12 +86,22 @@ body {
 /* Logo Hover Animation */
 
 .CL_Logo {
-    transition: transform 0.5s ease; 
+    transition: transform 0.5s ease;
+    /* animation: rotation 3s infinite linear;  */
 }
   
 .CL_Logo:hover {
     transform: scale(0.9); 
 }  
+
+/* @keyframes rotation {
+    0%, 100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  } */
 
 .content{
     margin-bottom: 50%;
