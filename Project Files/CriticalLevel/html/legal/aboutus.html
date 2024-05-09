@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+     <!-- Libraries -->
+     <link href="../../libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+     <script src="../../libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+
     <!-- Fonts -->
     <link rel="stylesheet" href="../../css/fonts.css">
 
@@ -14,43 +18,73 @@
     <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="../../media/CL_Logo_Blue_Hex/favicon.ico">
 
-    <!-- Libraries -->
-    <link href="../libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
-    
     <!-- Main Page -->
     <title>Critical Level</title>
   </head>
   <body>
 
-    <!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
-    <nav class="menu-container">
-      <!-- Logo -->
-      <a href="../../../index.html" class="menu-logo">
-        <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
-      </a><a href="../index.html">Inicio &nbsp;</a>>&nbsp; Sobre Nosotros
-    </nav>
+   <!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
+   <nav class="menu-container">
+     <!-- Logo -->
+     <a href="../../../index.html" class="menu-logo">
+       <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
+     </a><a href="../index.html">Inicio &nbsp;</a>>&nbsp; Sobre Nosotros
+   </nav>
 
-    <video id="background-video" autoplay loop muted poster="../../media/bi_4k_bg_cover.png">
-      <source src="" type="video/mp4">
-    </video> 
-    <!-- ../../media/bi_4K_animated_bg.mp4 -->
-
+  <div class="aboutUsTitle">
     <h1>Critical Level</h1>
     <h2>Sobre Nosotros</h2>
+  </div>
 
-    <div class="aboutus_board">
-      <div class="panel panel1">
+   <div class="container">
+    <div class="row">
+  
+      <div class="col-md-4 col-sm-12 panelTexto" >
         <h3>¿En qué consiste?</h3>
-        <p class="panelText">Critical Level es una página web que busca como objetivo brindar tanto a jugadores casuales como a críticos un lugar donde poder expresarse y compartir su opinión sobre los títulos que hayan jugado, mientras comprueban las opiniones de otros usuarios.</p>
+        <p>Critical Level es una página web que busca como objetivo brindar tanto a jugadores casuales como a críticos un lugar donde poder expresarse y compartir su opinión sobre los títulos que hayan jugado, mientras comprueban las opiniones de otros usuarios.</p>
       </div>
 
-      <div class="panel panel2">
+      <div class="col-md-4 col-sm-12 panelTexto">
         <h3>¿Cómo funciona?</h3>
-        <p class="panelText">Además de nuestros propios ficheros, lógica de procesamiento, base de datos y librerías, utilizamos la API proporcionada por RAWG, obteniendo así todos los datos necesarios sobre los videojuegos para que la página funcione.</p>
+        <p>Además de nuestros propios ficheros, lógica de procesamiento, base de datos y librerías, utilizamos la API proporcionada por RAWG, obteniendo así todos los datos necesarios sobre los videojuegos para que la página funcione.</p> 
+      </div>
+
+      <div class="col-md-4 col-sm-12 panelTexto">
+        <h3>¿Cómo funciona?</h3>
+        <p>Además de nuestros propios ficheros, lógica de procesamiento, base de datos y librerías, utilizamos la API proporcionada por RAWG, obteniendo así todos los datos necesarios sobre los videojuegos para que la página funcione.</p> 
+      </div>
+
+      <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+        <div class="card p-4"> 
+          <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+            <button class="btn btn-secondary"> 
+              <img src="https://avatars.githubusercontent.com/u/55911630?s=400&u=ea291fcfc8257d2e9dfa98dc17b059d3d43d6ade&v=4" height="100" width="100"/>
+            </button> 
+            <span class="name mt-3">Jose Zafrilla</span>
+            <span class="idd">@Jozaru</span>
+            <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+              <span class="idd1">Posmilenial Centuriano</span> <span><i class="fa fa-copy"></i></span>
+            </div> 
+            <div class="d-flex flex-row justify-content-center align-items-center mt-3"> 
+              <span class="number">+7000
+                <span class="follow">Steam Achievements</span>
+              </span> 
+            </div>  
+            <div class="text mt-3"> 
+                <span>Jose Zafrilla es el CEO y creador de Critical Level.<br><br> <i>"A veces programo, pero siempre juego".</i> </span> 
+            </div> 
+            <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> 
+                <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> 
+            </div> 
+            <div class=" px-2 rounded mt-4 date "> 
+              <span class="join">Se unió en Mayo, 2024</span> 
+            </div> 
+          </div> 
+        </div>
       </div>
 
     </div>
+  </div>
 
     <!-- AÑADIR FOOTER-->
   </body> 

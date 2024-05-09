@@ -1,25 +1,27 @@
-#background-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
+body{
+    background: rgb(2,0,36);
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 69%, rgba(0,212,255,1) 100%);
+    background-repeat: no-repeat;
+    background-size: auto;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6 {
     color: white;
     font-family: Trebuchet MS;
     font-weight: bold; 
     text-align: center;
 }
+
+p{
+    color: white;
+    font-family: Trebuchet MS;
+    text-align: justify;
+    padding-left: 30px;
+    padding-right: 30px;
+}
  
 h1 {
     font-size: 6rem;
-    margin-top: 30vh;
 }
  
 h2 {
@@ -37,27 +39,125 @@ h3{
     align-items: center; 
 }
 
-.panel{
-    width: 33%;
-    background-color: rgba(66, 66, 66, 0.473);
-    padding: 1%;
-    border-radius: 10px;
+.aboutUsTitle{
+    --b: .5em; /* border width */
+	--c: 3em; /* corner size */
+	--r: 2em; /* corner rounding */
+	position: relative;
+	margin: 1em auto;
+	border: solid var(--b) transparent;
+	padding: 1em;
+	max-width: 34em;
+	font: 1.25em ubuntu, sans-serif;
+	
+	&::before {
+		position: absolute;
+		z-index: -1;
+		inset: calc(-1*var(--b));
+		border: inherit;
+		border-radius: var(--r);
+		background: linear-gradient(180deg, rgb(59, 158, 255) -1.2%, rgb(246, 135, 255) 91.6%) border-box;
+		--corner: 
+			conic-gradient(from -90deg at var(--c) var(--c), red 25%, #0000 0) 
+				0 0/ calc(100% - var(--c))  calc(100% - var(--c)) border-box;
+		--inner: conic-gradient(red 0 0) padding-box;
+		-webkit-mask: var(--corner), var(--inner);
+		-webkit-mask-composite: source-out;
+						mask: var(--corner) subtract, var(--inner);
+		content: ''
+	}
 }
 
-.panelText{
-    font-size: 20px;
+.aboutUsTitle{
+    margin-top: 30vh;
+    margin-bottom: 30vh;
 }
 
-@media (max-width: 750px) {
-    #background-video {
-       display: none;
-    } 
-    body {
-       background: url("../../media/bi_4K_animated_bg.mp4") no-repeat;
-       background-size: cover;
-    }
+.panelTexto{
+    margin-bottom: 130px;
 }
 
-video{
-    filter: blur(5px);
+.card {
+    width: 350px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
+
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 12px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
+
+hr .new1 {
+    border: 1px solid
+}
+
+.join {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: bold
+}
+
+.date {
+    background-color: #ccc
+}
+
+.btn-secondary{
+    background-color: white;
+    border-radius: 0%;
 }
