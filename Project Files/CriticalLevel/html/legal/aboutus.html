@@ -8,6 +8,9 @@
      <link href="../../libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
      <script src="../../libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Fonts -->
     <link rel="stylesheet" href="../../css/fonts.css">
 
@@ -39,22 +42,22 @@
    <div class="container">
     <div class="row">
   
-      <div class="col-md-4 col-sm-12 panelTexto" >
+      <div class="col-md-4 col-sm-12 panelTexto" data-aos="fade-right">
         <h3>¿En qué consiste?</h3>
         <p>Critical Level es una página web que busca como objetivo brindar tanto a jugadores casuales como a críticos un lugar donde poder expresarse y compartir su opinión sobre los títulos que hayan jugado, mientras comprueban las opiniones de otros usuarios.</p>
       </div>
 
-      <div class="col-md-4 col-sm-12 panelTexto">
+      <div class="col-md-4 col-sm-12 panelTexto" data-aos="fade-up">
         <h3>¿Cómo funciona?</h3>
         <p>Además de nuestros propios ficheros, lógica de procesamiento, base de datos y librerías, utilizamos la API proporcionada por RAWG, obteniendo así todos los datos necesarios sobre los videojuegos para que la página funcione.</p> 
       </div>
 
-      <div class="col-md-4 col-sm-12 panelTexto">
+      <div class="col-md-4 col-sm-12 panelTexto" data-aos="fade-left">
         <h3>¿Cómo funciona?</h3>
         <p>Además de nuestros propios ficheros, lógica de procesamiento, base de datos y librerías, utilizamos la API proporcionada por RAWG, obteniendo así todos los datos necesarios sobre los videojuegos para que la página funcione.</p> 
       </div>
 
-      <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+      <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"  data-aos="flip-up"> 
         <div class="card p-4"> 
           <div class=" image d-flex flex-column justify-content-center align-items-center"> 
             <button class="btn btn-secondary"> 
@@ -87,5 +90,8 @@
   </div>
 
     <!-- AÑADIR FOOTER-->
+    <script>
+      AOS.init({ duration: 1200 });
+    </script>
   </body> 
 </html>
