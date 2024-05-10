@@ -31,11 +31,16 @@ body {
 
 .content, .search-bar {
 	display: flex;
+	width: 100%;
 }
 
 .content {
 	/* height: 30vh; */
   /* vertical-align: auto; */
+}
+
+.search-bar{
+	
 }
 
 /* Search Bar */

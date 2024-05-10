@@ -7,6 +7,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   font-family: 'Raleway', Arial, sans-serif;
+  background: linear-gradient(90.6deg, rgb(59, 158, 255) -1.2%, rgb(246, 135, 255) 91.6%); /* Gradient taken from https://gradients.shecodes.io/gradients/29 */
 }
 
 /* Nav Menu Container */
