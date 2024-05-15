@@ -25,7 +25,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ✔️ | Obtain a domain and link it with the XAMPP page  |
 | ✔️ | Find a good Videogame API - RAWG |
 | ❌ | Install Workbench and create Database + add some info |
-| ❌ | Create template pages with pure HTML & CSS  |
+| ✔️ | Create template pages with pure HTML & CSS (+ libraries) |
 | ❌ | Validate HTML & CSS |
 | ❌ | Display any DB information within the webpage  |
 | ❌ | Test web with ZAP for any security breach |
@@ -35,7 +35,6 @@ The page will work as a IMDB-like service, in which people can either check othe
 * Load 5 dynamic divs from a set of videogames for each page reload
 * How to make each page for each videogame? Its gonna be crazy! If you load them pages dynamically, how do you even load de IDS?
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
-* check for landing page - AOS too: https://medium.com/@tajammalmaqbool11/how-you-can-make-animated-landing-page-using-html-css-and-js-754fd9558dc6
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br>
@@ -77,7 +76,7 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 
 * **NO-IP:** Webpage hosting, DDNS, domain solving, IP forwarding, etc
 * **XAMPP:** Apache testing, Database and a nexus on where to store files.
-* **HTML5 & CSS (Sass or Bootstrap), JS:** To create the webpage
+* **HTML5 & CSS (Sass or Bootstrap), JS, AOS:** To create the webpage
 * **API - RAWG:** To obtain videogame data and such
 
 <br><br>
