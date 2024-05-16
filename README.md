@@ -29,6 +29,10 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ❌ | Validate HTML & CSS |
 | ❌ | Display any DB information within the webpage  |
 | ❌ | Test web with ZAP for any security breach |
+| ❌ | Add sessions + corresponding navs for logged in or out |
+| ❌ | Rroles to access different aspects of the page |
+| ❌ | Working log in and signup system, as well as account deletion |
+| ❌ | Dynamic Profiles + Games pages |
 | ❓ | PHP for DB/HTML interaction or Node.JS  |
 
 * check for automatic moderation??
