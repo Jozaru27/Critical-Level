@@ -35,6 +35,13 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ❌ | Dynamic Profiles + Games pages |
 | ❓ | PHP for DB/HTML interaction or Node.JS  |
 
+* Add pretty API content
+* Create DB
+* Create Login and Register logic for forms
+* Add sessions 
+* Add different nav if sesion is initiated (with logout and profile button)
+* Check roles
+
 * check for automatic moderation??
 * Load 5 dynamic divs from a set of videogames for each page reload
 * How to make each page for each videogame? Its gonna be crazy! If you load them pages dynamically, how do you even load de IDS?
