@@ -90,6 +90,7 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 * **HTML5 & CSS (Sass or Bootstrap), JS, AOS:** To create the webpage
 * **API - RAWG:** To obtain videogame data and such
 
+ZAP AND https://cors-test.codehappy.dev/
 <br><br>
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/gary.gif)
