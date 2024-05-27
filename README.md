@@ -36,15 +36,15 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ✔️ | PHP for DB/HTML interaction  |
 
 * Add pretty API content
-* Create DB
-* Create Login and Register logic for forms
-* Add sessions 
-* Add different nav if sesion is initiated (with logout and profile button)
+* Fix API things shown CROSS READ SITE ACCESS whatever
+* Place SSL certificate
+* Re-Do profile registration data
+* Do dynamic profiles + delete button + edit info
+* huh
 * Check roles
 
 * check for automatic moderation??
 * Load 5 dynamic divs from a set of videogames for each page reload
-* How to make each page for each videogame? Its gonna be crazy! If you load them pages dynamically, how do you even load de IDS?
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
