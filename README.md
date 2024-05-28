@@ -20,32 +20,39 @@ The page will work as a IMDB-like service, in which people can either check othe
 
 | Status 📍 | Goal 🚀 |
 | :---: | --- |
-| ✔️ | Create repository to document changes and upload files  |
-| ✔️ | Install XAMPP and check if it runs  |
-| ✔️ | Obtain a domain and link it with the XAMPP page  |
-| ✔️ | Find a good Videogame API - RAWG |
-| ✔️ | Install Workbench and create Database + add some info |
-| ✔️ | Create template pages with pure HTML & CSS (+ libraries) |
+| ✔️ | Create Repository to document changes and upload files  |
+| ✔️ | Install XAMPP + Open ports + Set Database  |
+| ✔️ | Obtain a domain (NO-IP) - Linked with XAMPP  |
+| ❌ | Set SSL Certificate |
+| ✔️ | Obtain a good Videogame API - RAWG |
+| ✔️ | Design proper database + Create it with Workbench |
+| ✔️ | Create main Design with HTML & CSS (+ libraries/frameworks) |
 | ✔️ | Validate HTML & CSS |
-| ✔️ | Display any DB information within the webpage  |
+| ✔️ | Test PHP for DB/HTML interaction & integration  |
+| ✔️ | Display any DB info + data access within the webpage |
+| ✔️ | Display any API info within the webpage |
+| ✔️ | Fixed AJAX CORS - Access-Control-Allow-Origin + Validated Site |
+| ✔️ | Add login/register system + sessions (with dependant navs)|
+| ❌ | Add roles for certain accesses |
+| ✔️ | Add basic profile data retrieval |
+| ❌ | Dynamic Profiles |
+| ❌ | Add profile edition/deletion |
+| ❌ | Create proper games page + Pretty API |
+| ❌ | Add sessions and roles security checks |
+| ❌ | Main Page (dependant on certain review checks) |
+| ❌ | Sitemap Page + Events Page + Buy membership & change role page |
 | ❌ | Test web with ZAP for any security breach |
-| ✔️ | Add sessions + corresponding navs for logged in or out |
-| ❌ | Roles to access different aspects of the page |
-| ✔️ | Working log in and signup system, as well as account deletion |
-| ✔️ | Dynamic Profiles + Games pages |
-| ✔️ | PHP for DB/HTML interaction  |
 
-* Add pretty API content
-* Fix API things shown CROSS READ SITE ACCESS whatever
-* Place SSL certificate
+
 * Re-Do profile registration data
 * Do dynamic profiles + delete button + edit info
-* huh
 * Check roles
 
 * check for automatic moderation??
 * Load 5 dynamic divs from a set of videogames for each page reload
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
+* ZAP AND https://cors-test.codehappy.dev/
+* Check HTML and CSS validation
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 <br><br>
@@ -90,8 +97,6 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 * **HTML5 & CSS (Sass or Bootstrap), JS, AOS:** To create the webpage
 * **API - RAWG:** To obtain videogame data and such
 
-ZAP AND https://cors-test.codehappy.dev/
-Check HTML and CSS validation
 <br><br>
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/gary.gif)
