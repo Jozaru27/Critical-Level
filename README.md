@@ -91,6 +91,7 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 * **API - RAWG:** To obtain videogame data and such
 
 ZAP AND https://cors-test.codehappy.dev/
+Check HTML and CSS validation
 <br><br>
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/gary.gif)
