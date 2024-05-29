@@ -28,17 +28,17 @@
       <!-- Logo -->
       <a href="../../../index.html" class="menu-logo">
         <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
-      </a><a href="../index.html">Inicio &nbsp;</a>>&nbsp; Registro
+      </a><a href="../index.php">Inicio &nbsp;</a>>&nbsp; Registro
     </nav>
 
     <h2>Formulario de Registro</h2>
     <h5>Sólo tu nombre de usuario será público.</h5><hr><br>
 
     <div class="content">
-      <form class="contact" method="post"><br>
+      <form class="contact" method="POST" action="../../php/signup.php"><br>
       
-        <label for="nombre">Nombre de Usuario:</label><br><br>
-        <input type="text" class="campoForm" id="nombre" name="nombre" required autofocus><br><br>
+        <label for="nombre_usuario">Nombre de Usuario:</label><br><br>
+        <input type="text" class="campoForm" id="nombre_usuario" name="nombre_usuario" required autofocus><br><br>
 
         <label for="email">Correo Electrónico:</label><br><br>
         <input type="email" class="campoForm" id="email" name="email" required><br><br>
@@ -49,9 +49,9 @@
         <label for="contaseñaConfirmar">Confirmar Contraseña:</label><br><br>
         <input type="password" class="campoForm" id="contraseñaConfirmar" name="contraseñaConfirmar" required><br><br>
 
-        <label for="aceptaPolitica"> <input type="checkbox"> He leído y acepto la <a href="../../html/legal/privacypolicy.html" target=”_blank”>Política de Privacidad</a>.</label><br><br>
+        <label for="aceptaPolitica"> <input type="checkbox" required> He leído y acepto la <a href="../../html/legal/privacypolicy.html" target=”_blank” >Política de Privacidad</a>.</label><br><br>
 
-        <input type="button" id="enviar" name="enviar" value="Registrarse" class="submitButton">
+        <input type="submit" id="enviar" name="enviar" value="Registrarse" class="submitButton">
       </form>
     </div>
     

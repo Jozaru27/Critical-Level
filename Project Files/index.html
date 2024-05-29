@@ -20,14 +20,16 @@
     <!-- Animate On Scroll Library -->
     <link  rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    
-    <!-- Animate On Scroll Script -->
-    <script src="CriticalLevel/js/AnimateOnScroll.js"></script>
+
+    <!-- JS -->
+    <script src="CriticalLevel/js/LandingPageScript.js"></script>
 
     <!-- Bootstrap -->
     <link href="CriticalLevel/libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
      <script src="CriticalLevel/libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <!-- Landing Page -->
     <title>Critical Level</title>
   </head>
@@ -38,14 +40,18 @@
       <div class="logoSlogan">
         <img src="CriticalLevel/media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" class="CL_Logo">
         <h1>Critical Level</h1>
-        <p>Un lugar donde opinar</p>
+        <p class="fraseOpinion">Un lugar donde opinar</p>
       </div>
 
       <div class="stats aos-init aos-animate" data-aos="fade-in" data-aos-duration="800">
-        <h1> Mira estas estadísticas!</h1>
-        <p> Videojuegos: 100.000 </p>
-        <p> Críticas: 100 </p>
-        <p> Usuarios: 5.000 </p>
+        <h1> ¡Mira estas estadísticas!</h1>
+        <div class="stats-container">
+          <p id="totalGames">Videojuegos: <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></p>
+          <p id="totalGenres">Géneros Distintos: <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></p>
+          <!-- <p id="totalPlatforms">Plataformas Totales: Cargando...</p> Platform sometines generates AJAX failure, thus, halting the code-->
+          <p> Críticas: 100 </p>
+          <p> Usuarios: 5.000 </p>
+        </div>
       </div>
 
       <div class="container">
@@ -72,26 +78,10 @@
             </div>
           </div>
           
-          <!-- <div class="board">
-            <div class="boardElement board1 col-md-4 col-sm-12" data-aos="zoom-in">
-              <h2>¿Qué es Critical Level?</h2>
-              <p> Critical Level es la página web por excelencia donde poder compartir tus opiniones sobre millones de juegos con miles de usuarios </p>
-            </div>
-
-            <div class="boardElement board2 col-md-4 col-sm-12" data-aos="zoom-in">
-              <h2>¿Cómo funciona Critical Level?</h2>
-              <p> Puedes buscar entre nuestra extensa y amplia base de datos cualquier videojuego, desde antes del año 2000 hasta los últimos títulos de 2024</p>
-            </div>
-
-            <div class="boardElement board3 col-md-4 col-sm-12" data-aos="zoom-in">
-              <h2>¿Es para mí Critical Level?</h2>
-              <p> ¿Te gusta sentirte escuchado? ¿Alguna vez has querido compartir tu opinión o simplemente comentar sobre la de los demás? Entonces no te lo pienses dos veces</p>
-            </div>
-          </div> -->
 
         </div>
         <div class="button">
-          <h1><a class="startButton" href="CriticalLevel/html/index.html">¡A Criticar!</a></h1>
+          <h1><a class="startButton" href="CriticalLevel/html/index.php">¡A Criticar!</a></h1>
         </div><br><br><br><br><br><br><br><br>
       </div>
     </div>

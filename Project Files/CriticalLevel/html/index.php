@@ -1,0 +1,189 @@
+<?php
+// Iniciar la sesión para acceder a las variables de sesión
+session_start();
+?>
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="../css/fonts.css">
+
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="../css/MainPageStyle.css">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="../media/CL_Logo_Blue_Hex/favicon.ico">
+
+    <!-- Libraries -->
+    <link href="../libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <!-- Script -->
+    <script src="../js/script.js"></script>
+    
+    <!-- Main Page -->
+    <title>Critical Level</title>
+  </head>
+  <body>
+
+    <!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
+    <nav class="menu-container">
+      <!-- Burger Menu -->
+      <input type="checkbox" aria-label="Toggle menu" />
+      <span></span>
+      <span></span>
+      <span></span>
+    
+      <!-- Logo -->
+      <a href="../../index.html" class="menu-logo">
+        <img src="../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
+      </a>
+    
+      <!-- Navbar Menu -->
+      <div class="menu">
+        <ul>
+            <li>
+                <a href="index.php">
+                    Inicio
+                </a>
+            </li>
+            <li>
+                <a href="games.html">
+                    Juegos
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Flipes
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Pipes
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <?php if (isset($_SESSION['usuario_email'])): ?>
+                <li>
+                    <a href="profiles/profile.php">
+                        Perfil
+                    </a>
+                </li>
+                <li>
+                    <a href="../php/logout.php">
+                        Cerrar Sesión
+                    </a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="forms/signup.html">
+                        Registro
+                    </a>
+                </li>
+                <li>
+                    <a href="forms/login.html">
+                        Iniciar Sesión
+                    </a>
+                </li>
+            <?php endif; ?>
+        </ul>
+      </div>
+    </nav>
+    
+  <!-- Game Carousel -->
+  <!-- https://freefrontend.com/css-gallery/ -->
+  <div class="games-showcase">
+    <div id="carouselExampleInterval" class="carousel slide carousel-fade w-25" data-bs-ride="carousel">
+      
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="">
+            <img src="../media/hl_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="">
+            <img src="../media/hl_bs_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="">
+            <img src="../media/hl_of_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  
+  
+  <div class="latest-reviews">
+
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <h6>Sobre Critical Level</h6>
+          <p class="text-justify">Critical Level es una simple página web en la cuál recogemos una amplia variedad de videojuegos, además de información relacionada y peritenente a los mismos. El uso de esta página web implica que aceptas, no sólo leer las reglas impuestas en la misma, sino acatarlas para hacer un mejor uso y experiencia tanto para ti como para el resto de usuarios.</p>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Enlaces</h6>
+          <ul class="footer-links">
+            <li><a href="../../index.html">Landing Page</a></li>
+            <li><a href="../html/index.html">Inicio</a></li>
+            <li><a href="../html/games.html">Juegos</a></li>
+            <li><a href="">Flipes [NULL]</a></li>
+            <li><a href="">Pipes [NULL]</a></li>
+            <li><a href="">Yuju [NULL]</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6 col-md-3">
+          <h6>Legal</h6>
+          <ul class="footer-links">
+            <li><a href="legal/aboutus.html">Sobre Nosotros</a></li>
+            <li><a href="forms/contactus.html">Contáctanos</a></li>
+            <li><a href="">Contribuir [NULL]</a></li>
+            <li><a href="legal/privacypolicy.html">Política de Privacidad</a></li>
+            <li><a href="">Sitemap [NULL]</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <p class="copyright-text">Copyright &copy; 2024 Todos los Derechos Reservados 
+           <a href="https://github.com/Jozaru27">Jose Zafrilla Ruiz</a>.
+          </p>
+        </div>
+
+        <!-- Icons Taken from https://icons8.com/ <a target="_blank" href="https://icons8.com/icon/12505/steam">Steam</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>--> 
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="social-icons">
+            <li><a class="github" href="https://github.com/Jozaru27/Critical-Level"><i class="bi-github"></i></a></li>
+            <li><a class="linkedin" href="https://www.linkedin.com/in/jose-zafrilla-ruiz/"><i class="bi-linkedin"></i></a></li>
+            <!-- <li><a class="steam" href="https://steamcommunity.com/id/jozaru"><i class="bi bi-steam"></i></a></li> -->
+            <!--<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>    -->
+          </ul>
+        </div>
+      </div>
+    </div>
+</footer>
+
+  </body>
+</html>

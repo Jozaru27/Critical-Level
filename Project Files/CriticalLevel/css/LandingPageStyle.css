@@ -24,6 +24,44 @@ body {
     margin-bottom: 15vw;
 }
 
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.stats-container p {
+  font-size: 1.5em; 
+  margin: 10px 20px; 
+  text-align: center; 
+  flex: 1;
+  min-width: 150px; 
+  font-weight: bold;
+}
+
+/* .stats-container p:first-child {
+  color: #1e90ff; 
+}
+
+.stats-container p:nth-child(2) {
+  color: #32cd32;
+}
+
+.stats-container p:nth-child(3) {
+  color: #ff6347; 
+}
+
+.stats-container p:nth-child(4) {
+  color: #ffa500; 
+}
+
+.stats-container p:nth-child(5) {
+  color: #9370db; 
+} */
+
+
 /* Board Section */
 /* .board{
     text-align: center;
@@ -92,7 +130,7 @@ body {
   } */
 
 .content{
-    margin-bottom: 50%;
+    margin-bottom: 1%;
 }
 
 .panelTexto{

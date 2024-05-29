@@ -162,7 +162,7 @@ body {
 		color: #f1f1f1;
 	}
 	body {
-		background: #171717;
+		background: linear-gradient(90.6deg, rgb(59, 158, 255) -1.2%, rgb(246, 135, 255) 91.6%);
 	}
 	.search-bar input {
 		box-shadow: 0 0 0 0.4em #f1f1f1 inset;

@@ -28,14 +28,14 @@
       <!-- Logo -->
       <a href="../../../index.html" class="menu-logo">
         <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
-      </a><a href="../index.html">Inicio &nbsp;</a>>&nbsp; Login
+      </a><a href="../index.php">Inicio &nbsp;</a>>&nbsp; Login
     </nav>
 
     <h2>Inicio de Sesión</h2>
     <h5>Por favor, inicia sesión con tu correo electrónico y tu contraseña</h5><hr><br>
 
     <div class="content">
-      <form class="contact" method="post"><br>
+      <form class="contact" method="post" action="../../php/login.php"><br>
 
         <label for="email">Correo Electrónico:</label><br><br>
         <input type="email" class="campoForm" id="email" name="email" required><br><br>
@@ -43,11 +43,11 @@
         <label for="contraseña">Contraseña:</label><br><br>
         <input type="password" class="campoForm" id="contraseña" name="contraseña" required><br><br>
 
-        <input type="button" id="enviar" name="enviar" value="Iniciar Sesión" class="submitButton submitLoginButton">
+        <input type="submit" id="enviar" name="enviar" value="Iniciar Sesión" class="submitButton submitLoginButton">
       </form>
     </div>
     
-
+    
     <!-- AÑADIR FOOTER-->
 
   </body>
