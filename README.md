@@ -33,7 +33,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ✔️ | Display any API info within the webpage |
 | ✔️ | Fixed AJAX CORS - Access-Control-Allow-Origin + Validated Site |
 | ✔️ | Add login/register system + sessions (with dependant navs)|
-| ❌ | Add roles for certain accesses |
+| ✔️ | Add roles for certain accesses |
 | ✔️ | Add basic profile data retrieval |
 | ✔️ | Dynamic Profiles |
 | ✔️ | Add profile edition/deletion |
