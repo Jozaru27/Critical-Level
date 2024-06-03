@@ -14,6 +14,7 @@ session_start();
 
     <!-- StyleSheets -->
     <link rel="stylesheet" href="../css/MainPageStyle.css">
+    <link rel="stylesheet" href="../css/GamesPageStyle.css">
 
     <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="../media/CL_Logo_Blue_Hex/favicon.ico">
@@ -27,9 +28,48 @@ session_start();
 
     <!-- Script -->
     <script src="../js/script.js"></script>
+    <script src="../js/GamesPageScript.js"></script>
     
     <!-- Main Page -->
     <title>Critical Level</title>
+
+    <style>
+
+      
+      .game-card {
+          position: relative;
+          display: inline-block;
+          width: 250px; /* Ajusta el ancho según tus necesidades */
+          margin: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          transition: transform 0.2s, box-shadow 0.2s;
+          background-color: rgba(0, 0, 0, 0.75);
+          cursor: pointer;
+      }
+
+      .game-card img {
+          width: 100%;
+          display: block;
+          height: 150px;
+      }
+
+      .game-card .game-title {
+          text-align: center;
+          padding: 10px;
+          font-weight: bold;
+          color: white;
+      }
+
+      .game-card:hover {
+          transform: scale(1.05);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .pagination {
+          margin-top: 20px;
+          text-align: center;
+      }
+    </style>
   </head>
   <body>
 
@@ -97,38 +137,16 @@ session_start();
         </ul>
       </div>
     </nav>
-    
-  <!-- Game Carousel -->
-  <!-- https://freefrontend.com/css-gallery/ -->
-  <div class="games-showcase">
-    <div id="carouselExampleInterval" class="carousel slide carousel-fade w-25" data-bs-ride="carousel">
-      
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <a href="">
-            <img src="../media/hl_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
-          </a>
-        </div>
-        <div class="carousel-item">
-          <a href="">
-            <img src="../media/hl_bs_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
-          </a>
-        </div>
-        <div class="carousel-item">
-          <a href="">
-            <img src="../media/hl_of_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
-          </a>
-        </div>
+
+    <!-- Contenido de la página -->
+    <div class="container">
+      <div class="games-container" id="gamesContainer"></div>
+      <div class="pagination" id="pagination">
+          <button id="prevPage" disabled>Anterior</button>
+          <button id="nextPage">Siguiente</button>
       </div>
-
     </div>
-  </div>
 
-  
-  
-  <div class="latest-reviews">
-
-  </div>
 
   <!-- Site Footer -->
   <footer class="site-footer">
@@ -184,6 +202,67 @@ session_start();
       </div>
     </div>
 </footer>
+
+<script>
+  let currentPage = 1;
+
+  const gamesContainer = document.getElementById('gamesContainer');
+  const prevPageButton = document.getElementById('prevPage');
+  const nextPageButton = document.getElementById('nextPage');
+
+  function fetchGames(page) {
+      const apiUrl = `${baseUrl}/games?key=${apiKey}&page=${page}`;
+      fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+              displayGames(data.results);
+              updatePagination(data.previous, data.next);
+          })
+          .catch(error => console.error('Error fetching games:', error));
+  }
+
+  function displayGames(games) {
+      gamesContainer.innerHTML = '';
+      games.forEach(game => {
+          const gameCard = document.createElement('div');
+          gameCard.classList.add('game-card');
+          gameCard.innerHTML = `<img src="${game.background_image}" alt="${game.name}">`;
+          gameCard.innerHTML += `<div class="game-title">${game.name}</div>`;
+          gameCard.addEventListener('click', () => {
+              window.location.href = `profiles/game.php?id=${game.id}`;
+          });
+          gamesContainer.appendChild(gameCard);
+      });
+  }
+
+  function updatePagination(previousPageUrl, nextPageUrl) {
+      if (previousPageUrl) {
+          prevPageButton.disabled = false;
+          prevPageButton.onclick = () => {
+              currentPage--;
+              fetchGames(currentPage);
+          };
+      } else {
+          prevPageButton.disabled = true;
+          prevPageButton.onclick = null;
+      }
+
+      if (nextPageUrl) {
+          nextPageButton.disabled = false;
+          nextPageButton.onclick = () => {
+              currentPage++;
+              fetchGames(currentPage);
+          };
+      } else {
+          nextPageButton.disabled = true;
+          nextPageButton.onclick = null;
+      }
+  }
+
+  // Iniciar con la primera página de juegos
+  fetchGames(currentPage);
+</script>
+
 
   </body>
 </html>
