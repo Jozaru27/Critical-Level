@@ -35,21 +35,26 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ✔️ | Add login/register system + sessions (with dependant navs)|
 | ❌ | Add roles for certain accesses |
 | ✔️ | Add basic profile data retrieval |
-| ❌ | Dynamic Profiles |
-| ❌ | Add profile edition/deletion |
-| ❌ | Create proper games page + Pretty API |
+| ✔️ | Dynamic Profiles |
+| ✔️ | Add profile edition/deletion |
+| ✔️ | Create proper games page + Pretty API |
 | ❌ | Add sessions and roles security checks |
 | ❌ | Main Page (dependant on certain review checks) |
 | ❌ | Sitemap Page + Events Page + Buy membership & change role page |
 | ❌ | Test web with ZAP for any security breach |
 
-
-* Re-Do profile registration data
-* Do dynamic profiles + delete button + edit info
-* Check roles
+* Better pagination and search system
+* Delete button + edit profile picture
+* Ads show for roles 2, but not 3 and 1
+* Events. People with roles 2 can participate, 3 can participate in tournament
+* Membership Buying Page
+* Better review system + Style
+* Own Reviews in profile + edition
+* Main page - Depends on certain review Checks
+* Check for code reduction + english translation
+* Prettier landing page
 
 * check for automatic moderation??
-* Load 5 dynamic divs from a set of videogames for each page reload
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
 * ZAP AND https://cors-test.codehappy.dev/
 * Check HTML and CSS validation
