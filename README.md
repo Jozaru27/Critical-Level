@@ -43,18 +43,18 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ❌ | Sitemap Page + Events Page + Buy membership & change role page |
 | ❌ | Test web with ZAP for any security breach |
 
-* Better pagination and search system
-* Delete button + edit profile picture
-* Ads show for roles 2, but not 3 and 1
-* Events. People with roles 2 can participate, 3 can participate in tournament
-* Membership Buying Page
-* Better review system + Style
-* Own Reviews in profile + edition
-* Main page - Depends on certain review Checks
-* Check for code reduction + english translation
-* Prettier landing page
+* Games Page - Better Pagination and Search Bar System + Add filters
+* Profile Page - Delete button + Edit Profile Picture + Display Data in a prettier CSS + Own reviews
+* Other User Profile Page - When you click a username in a review, it leads you here - no edit button, just info + reviews
+* ADS in game page + reviews - Show for roles 2, but not 3 and 1
+* EVENTS. People with roles 2 can participate, 3 can participate in tournament
+* Membership Buying Page - Add basic support + No Ads / No ads + Tournament (Gonna have to make another role)
+* Individual Game Page Style + Review System style
+* Main page - Depends on certain review Checks - Latest Reviews, Highest Reviewed Games, Lowest Reviewed Games
+* Refactor and Reduce Code + English Commentary
+* Landing Page + Prettier stats + DB stats
 
-* check for automatic moderation??
+* Automatic Moderation
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
 * ZAP AND https://cors-test.codehappy.dev/
 * Check HTML and CSS validation
@@ -79,17 +79,6 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 <br><br>
 
 
-## Roadmap details 🗺️
-  
-  
-### 1. Create repository to document changes and upload files
-   - Always wanted to create patch notes and keep a release history - well, here we are! :)
-### 2. Install XAMPP and check if it runs
-   - After not being convinced to use WAMPP, XAMPP seemed the better option to at least host stuff locally, but also to help with the public hosting
-### 3. Obtain a domain and link it with the XAMPP page
-   - After Port-Forwarding, was able to setup a basic domain thats linked with XAMPP (Local PC needs to be running for it to work D:) - DDNS so good it keeps track of my dynamic IP and auto-updates it!
-### 4. Find a good Videogame API - RAWG
-   - Found a proper API that provides all necessary information and more on videogames, including technical and developer information. RAWG was kind enough to provide an API key with 20000 monthly uses
 <!-- Other API's: SteamWebAPI, IGDB, RAWG, Launchbox, Openretro, MobyGames, Metropolis Launcher, Screenscraper, Skraper, TheGamesDB, GameTDB, Giant Bomb--> 
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
@@ -99,8 +88,9 @@ A profile system could be implemented, to check each user's reviews, yes, but to
 
 * **NO-IP:** Webpage hosting, DDNS, domain solving, IP forwarding, etc
 * **XAMPP:** Apache testing, Database and a nexus on where to store files.
-* **HTML5 & CSS (Sass or Bootstrap), JS, AOS:** To create the webpage
+* **HTML5 & CSS, Bootstrap, JS, AOS:** To create the webpage
 * **API - RAWG:** To obtain videogame data and such
+* **PHP:** Process Forms, connect to DB + Login System & Sessions
 
 <br><br>
 
