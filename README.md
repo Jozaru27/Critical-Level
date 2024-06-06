@@ -53,6 +53,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 * Main page - Depends on certain review Checks - Latest Reviews, Highest Reviewed Games, Lowest Reviewed Games
 * Refactor and Reduce Code + English Commentary
 * Landing Page + Prettier stats + DB stats
+* Age check
 
 * Automatic Moderation
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
