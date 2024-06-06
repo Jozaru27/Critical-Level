@@ -37,6 +37,12 @@ if ($rol == 1) {
     $badgeText = 'Premium';
     $badgeClass = 'text-bg-warning'; // Yellow for Premium
 }
+
+// Consultar el número de reseñas del usuario
+$stmt_reseñas_count = $pdo->prepare("SELECT COUNT(*) AS count FROM Reseñas WHERE email = ?");
+$stmt_reseñas_count->execute([$email]);
+$numReseñas = $stmt_reseñas_count->fetchColumn();
+
 ?>
 
 <!doctype html>
@@ -46,6 +52,7 @@ if ($rol == 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/MainPageStyle.css">
+    <script src="../../js/script.js"></script>
     <title>Perfil de Usuario</title>
     <style>
         body {
@@ -167,11 +174,51 @@ if ($rol == 1) {
             <p><strong>Email:</strong> <?php echo htmlspecialchars($usuario['email']); ?></p>
             <p class="bio"><strong>Bio:</strong> <?php echo htmlspecialchars($usuario['bio']); ?></p>
             <p><strong>Miembro desde:</strong> <?php echo date('Y-m-d', strtotime($usuario['fechaCreacionCuenta'])); ?></p>
-            <p><strong>Juegos reseñados:</strong> <?php echo htmlspecialchars($usuario['numReseñasCreadas']); ?></p>
+            <p><strong>Juegos reseñados:</strong> <?php echo htmlspecialchars($numReseñas); ?></p>
             <p><strong>País:</strong> <?php echo htmlspecialchars($usuario['pais']); ?></p>
             <p><strong>Última Actividad:</strong> <?php echo htmlspecialchars($usuario['ultimaActividad']); ?></p>
         </div>
         <button id="editBtn" class="edit-button">Editar</button>
+
+        <hr>
+        <h2>Reseñas del Usuario</h2>
+        
+        <?php
+        // Consultar las reseñas del usuario actual
+        $sql_reseñas = "SELECT * FROM Reseñas WHERE email = ?";
+        $stmt_reseñas = $pdo->prepare($sql_reseñas);
+        $stmt_reseñas->execute([$email]);
+        $reseñas_usuario = $stmt_reseñas->fetchAll(PDO::FETCH_ASSOC);
+
+        // Array para almacenar los IDs de juegos
+        $idJuegos = [];
+        foreach ($reseñas_usuario as $reseña) {
+            $idJuegos[] = $reseña['idAPI'];
+        }
+
+        // Realizar llamada a la API para obtener los títulos de los juegos
+        $apiUrl = "https://api.rawg.io/api/games?key=" . $apiKey . "&ids=" . implode(',', $idJuegos);
+        $response = file_get_contents($apiUrl);
+        $data = json_decode($response, true);
+
+        // Crear un array asociativo de idAPI a título
+        $juegos = [];
+        foreach ($data['results'] as $juego) {
+            $juegos[$juego['id']] = $juego['name'];
+        }
+
+        
+
+        // Mostrar las reseñas del usuario junto con los títulos de los juegos
+        foreach ($reseñas_usuario as $reseña) {
+            echo "<div>";
+            echo "<p><strong>Juego:</strong> <a href='http://criticallevel.myddns.me/CriticalLevel/html/profiles/game.php?id=" . $reseña['idAPI'] . "'>" . htmlspecialchars($juegos[$reseña['idAPI']]) . "</a></p>";
+            echo "<p><strong>Valoración:</strong> " . htmlspecialchars($reseña['valoración']) . "</p>";
+            echo "<p><strong>Texto:</strong> " . nl2br(htmlspecialchars($reseña['texto'])) . "</p>";
+            echo "<p><em>Fecha de Creación: " . htmlspecialchars($reseña['fecha_creación']) . "</em></p>";
+            echo "</div>";
+        }
+        ?>
     </div>
 
     <!-- Modal -->
@@ -238,7 +285,5 @@ if ($rol == 1) {
             xhr.send(formData);
         });
     </script>
-
-    
 </body>
 </html>

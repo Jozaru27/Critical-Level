@@ -28,11 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $fotoPerfil = $defaultPhotos[array_rand($defaultPhotos)];
 
-    // Insertar datos en la tabla de usuarios
-    $sql = "INSERT INTO Usuarios (email, nombre_usuario, contraseña, idROL, bio, fotoPerfil, fechaCreacionCuenta, numReseñasCreadas, pais, ultimaActividad) 
-            VALUES (?, ?, ?, 2, '', ?, NOW(), 0, '', NOW())";
+    // Generar un código único para el usuario
+    $userCode = uniqid();
+
+    // Insertar datos en la tabla de usuarios, incluyendo el userCode
+    $sql = "INSERT INTO Usuarios (email, nombre_usuario, contraseña, idROL, bio, fotoPerfil, fechaCreacionCuenta, pais, ultimaActividad, userCode) 
+            VALUES (?, ?, ?, 2, '', ?, NOW(), '', NOW(), ?)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$email, $nombre, $contraseñaHash, $fotoPerfil]);
+    $stmt->execute([$email, $nombre, $contraseñaHash, $fotoPerfil, $userCode]);
 
     // Redirigir a la página de inicio u otra página
     header("Location: ../html/index.php");

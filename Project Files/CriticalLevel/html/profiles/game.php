@@ -18,9 +18,13 @@ if ($gameDetails === FALSE) {
 $game = json_decode($gameDetails, true);
 
 // Obtener reseñas del juego desde la base de datos
-$stmt = $pdo->prepare("SELECT * FROM Reseñas WHERE idAPI = ?");
+$stmt = $pdo->prepare("SELECT Reseñas.*, Usuarios.nombre_usuario, Usuarios.userCode 
+                       FROM Reseñas 
+                       JOIN Usuarios ON Reseñas.email = Usuarios.email 
+                       WHERE Reseñas.idAPI = ?");
 $stmt->execute([$gameId]);
 $reseñas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 // Verificar si el usuario ya ha enviado una reseña para este juego
 $userHasReseña = false;
@@ -110,14 +114,20 @@ $valoracionMedia = $numeroReseñas > 0 ? $totalValoraciones / $numeroReseñas : 
             <h2>Reseñas</h2>
             <?php foreach ($reseñas as $reseña): ?>
                 <div class="review">
-                    <p><strong><?php echo htmlspecialchars($reseña['email']); ?></strong> valoró con <?php echo htmlspecialchars($reseña['valoración']); ?>/5</p>
+                    <p><strong> <?php
+                            if ($reseña['email'] == $_SESSION['usuario_email']) {
+                                echo '<a href="profile.php">' . htmlspecialchars($reseña['nombre_usuario']) . '</a>';
+                            } else {
+                                echo '<a href="userProfile.php?code=' . urlencode($reseña['userCode']) . '">' . htmlspecialchars($reseña['nombre_usuario']) . '</a>';
+                            }
+                            ?>
+                            </strong> 
+                            valoró con <?php echo htmlspecialchars($reseña['valoración']); ?>/5</p>
                     <p><?php echo nl2br(htmlspecialchars($reseña['texto'])); ?></p>
                     <p><em>Fecha: <?php echo htmlspecialchars($reseña['fecha_creación']); ?></em></p>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
-
-
 </body>
 </html>

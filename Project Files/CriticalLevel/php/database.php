@@ -5,6 +5,9 @@ $username = "root";
 $password = "";  
 $dbname = "criticallevel"; 
 
+// Api key
+$apiKey = "3493dbf3242341fb9284060b456efb79";
+
 // If the connection is successful, it will display so, if not, it shall show a denial message
 try {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
