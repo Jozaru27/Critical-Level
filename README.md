@@ -64,6 +64,8 @@ The page will work as a IMDB-like service, in which people can either check othe
 * Check all links and routes
 * Separate scripts and styles
 * F1 BANNER - Add
+* Cuando creas reseña - update última actividad
+* stats de la landign page - bd
 
 * Automatic Moderation
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
