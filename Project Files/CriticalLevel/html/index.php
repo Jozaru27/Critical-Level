@@ -60,13 +60,13 @@ session_start();
                 </a>
             </li>
             <li>
-                <a href="#">
-                    Flipes
+                <a href="eventos.php">
+                    Eventos
                 </a>
             </li>
             <li>
-                <a href="#">
-                    Pipes
+                <a href="premium.php">
+                    Premium
                 </a>
             </li>
         </ul>
@@ -143,11 +143,10 @@ session_start();
           <h6>Enlaces</h6>
           <ul class="footer-links">
             <li><a href="../../index.html">Landing Page</a></li>
-            <li><a href="../html/index.html">Inicio</a></li>
-            <li><a href="../html/games.html">Juegos</a></li>
-            <li><a href="">Flipes [NULL]</a></li>
-            <li><a href="">Pipes [NULL]</a></li>
-            <li><a href="">Yuju [NULL]</a></li>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="games.php">Juegos</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="premium.html">Premium</a></li>
           </ul>
         </div>
 
@@ -156,9 +155,9 @@ session_start();
           <ul class="footer-links">
             <li><a href="legal/aboutus.html">Sobre Nosotros</a></li>
             <li><a href="forms/contactus.html">Contáctanos</a></li>
-            <li><a href="">Contribuir [NULL]</a></li>
+            <!-- <li><a href="">Contribuir [NULL]</a></li> -->
             <li><a href="legal/privacypolicy.html">Política de Privacidad</a></li>
-            <li><a href="">Sitemap [NULL]</a></li>
+            <!-- <li><a href="">Sitemap [NULL]</a></li> -->
           </ul>
         </div>
       </div>
@@ -183,7 +182,6 @@ session_start();
         </div>
       </div>
     </div>
-</footer>
-
+  </footer>
   </body>
 </html>

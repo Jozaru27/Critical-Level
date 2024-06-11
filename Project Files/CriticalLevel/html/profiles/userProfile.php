@@ -75,116 +75,82 @@ foreach ($data['results'] as $juego) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/MainPageStyle.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1b2838;
-            color: #c7d5e0;
-            margin: 0;
-            padding: 0;
-        }
-        .profile-container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: #2a475e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-        .profile-header {
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #394b59;
-            padding-bottom: 20px;
-        }
-        .profile-header img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            margin-right: 20px;
-            border: 5px solid #4a90e2;
-        }
-        .profile-header h1 {
-            margin: 0;
-        }
-        .profile-info {
-            margin-top: 20px;
-        }
-        .profile-info p {
-            margin: 10px 0;
-        }
-        .edit-button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #4a90e2;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .edit-button:hover {
-            background-color: #357abd;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 600px;
-            border-radius: 10px;
-        }
-        .modal-content input, .modal-content textarea, .modal-content select {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .modal-content button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #4a90e2;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .modal-content button:hover {
-            background-color: #357abd;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover, .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/MainPageStyle.css">
+    <link rel="stylesheet" href="../../css/profilesStyle/userProfile.css">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="../../js/script.js"></script>
+    <title>Perfil de Usuario</title>
 </head>
 <body>
+
+<!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
+<nav class="menu-container">
+      <!-- Burger Menu -->
+      <input type="checkbox" aria-label="Toggle menu" />
+      <span></span>
+      <span></span>
+      <span></span>
+    
+      <!-- Logo -->
+      <a href="../../index.html" class="menu-logo">
+        <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
+      </a>
+    
+      <!-- Navbar Menu -->
+      <div class="menu">
+        <ul>
+            <li>
+                <a href="../index.php">
+                    Inicio
+                </a>
+            </li>
+            <li>
+                <a href="../games.php">
+                    Juegos
+                </a>
+            </li>
+            <li>
+                <a href="../eventos.php">
+                    Eventos
+                </a>
+            </li>
+            <li>
+                <a href="../premium.php">
+                    Premium
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <?php if (isset($_SESSION['usuario_email'])): ?>
+                <li>
+                    <a href="profile.php">
+                        Perfil
+                    </a>
+                </li>
+                <li>
+                    <a href="../../php/logout.php">
+                        Cerrar Sesión
+                    </a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="../forms/signup.html">
+                        Registro
+                    </a>
+                </li>
+                <li>
+                    <a href="../forms/login.html">
+                        Iniciar Sesión
+                    </a>
+                </li>
+            <?php endif; ?>
+        </ul>
+      </div>
+    </nav> 
+
     <div class="profile-container">
         <div class="profile-header">
             <img src="<?php echo htmlspecialchars($usuario['fotoPerfil']); ?>" alt="Foto de perfil">
@@ -208,9 +174,20 @@ foreach ($data['results'] as $juego) {
             <?php
             // Mostrar las reseñas del usuario
             foreach ($reseñas as $reseña) {
-                echo "<div>";
+                echo "<div class='review-container'>";
                 echo "<p><strong>Juego:</strong> <a href='http://criticallevel.myddns.me/CriticalLevel/html/profiles/game.php?id=" . $reseña['idAPI'] . "'>" . htmlspecialchars($juegos[$reseña['idAPI']]) . "</a></p>";
-                echo "<p><strong>Valoración:</strong> " . htmlspecialchars($reseña['valoración']) . "</p>";
+                
+                // Mostrar estrellas de valoración
+                echo "<p><strong>Valoración:</strong> ";
+                for ($i = 1; $i <= 5; $i++) {
+                    if ($i <= $reseña['valoración']) {
+                        echo "<i class='bi bi-star-fill' style='color: #ffb400;'></i>";
+                    } else {
+                        echo "<i class='bi bi-star' style='color: #ffb400;'></i>";
+                    }
+                }
+                echo "</p>";
+
                 echo "<p><strong>Texto:</strong> " . nl2br(htmlspecialchars($reseña['texto'])) . "</p>";
                 echo "<p><em>Fecha de Creación: " . htmlspecialchars($reseña['fecha_creación']) . "</em></p>";
                 echo "</div>";
