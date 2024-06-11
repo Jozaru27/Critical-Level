@@ -1,6 +1,17 @@
 <?php
-// Iniciar la sesión para acceder a las variables de sesión
 session_start();
+require_once "../php/database.php";
+
+// Verificar si el usuario ha iniciado sesión y obtener el rol del usuario
+$userLoggedIn = isset($_SESSION['usuario_email']);
+$userRole = null;
+
+if ($userLoggedIn) {
+    $email = $_SESSION['usuario_email'];
+    $stmt = $pdo->prepare("SELECT idROL FROM Usuarios WHERE email = ?");
+    $stmt->execute([$email]);
+    $userRole = $stmt->fetchColumn();
+}
 ?>
 
 <!doctype html>
@@ -14,6 +25,7 @@ session_start();
 
     <!-- StyleSheets -->
     <link rel="stylesheet" href="../css/MainPageStyle.css">
+    <link rel="stylesheet" href="../css/indexPageStyle.css">
 
     <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="../media/CL_Logo_Blue_Hex/favicon.ico">
@@ -33,7 +45,6 @@ session_start();
   </head>
   <body>
 
-    <!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
     <nav class="menu-container">
       <!-- Burger Menu -->
       <input type="checkbox" aria-label="Toggle menu" />
@@ -97,91 +108,95 @@ session_start();
         </ul>
       </div>
     </nav>
+
+    <!-- Review Loader with filter -->
+    <div class="container mt-5">
+      <!-- Collab with F1S Banner - Viewable by everyone -->
+      <div class="bannerContainer">
+        <img class="imgBanner" src="../media/collab/bannerCollab_F1S_CL.png" alt="Banner de Anuncio"></img>
+      </div>
+
+        <h1 class="text-center">Reseñas</h1>
+        <div class="d-flex justify-content-end mb-4">
+            <select id="sortOptions" class="form-select w-auto">
+                <option value="recientes">Más recientes</option>
+                <option value="alta">Valoraciones más altas</option>
+                <option value="baja">Valoraciones más bajas</option>
+            </select>
+        </div>
+        <div id="reviewsContainer">
+            <!-- Aquí se cargarán las reseñas -->
+        </div>
+    </div>
+    <script src="../js/indexGetReviewsHandler.js"></script>
+
+    <!-- Banner de anuncio -->
+    <?php if (!$userLoggedIn || $userRole == 2): ?>
+    <div class="bannerContainer">
+      <img class="adBanner" src="../media/collab/STEAM_AD.jpg" alt="Banner de Anuncio">
+    </div>
+    <?php endif; ?>
+
+    <!-- Módulo de usuarios más activos -->
+    <div class="top-users mt-5">
+        <h2>Top 5 Usuarios Más Activos</h2>
+        <div id="topUsersContainer">
+            <?php include '../php/getTopUsers.php'; ?>
+        </div>
+    </div>
     
-  <!-- Game Carousel -->
-  <!-- https://freefrontend.com/css-gallery/ -->
-  <div class="games-showcase">
-    <div id="carouselExampleInterval" class="carousel slide carousel-fade w-25" data-bs-ride="carousel">
-      
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <a href="">
-            <img src="../media/hl_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
-          </a>
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>Sobre Critical Level</h6>
+            <p class="text-justify">Critical Level es una simple página web en la cuál recogemos una amplia variedad de videojuegos, además de información relacionada y peritenente a los mismos. El uso de esta página web implica que aceptas, no sólo leer las reglas impuestas en la misma, sino acatarlas para hacer un mejor uso y experiencia tanto para ti como para el resto de usuarios.</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Enlaces</h6>
+            <ul class="footer-links">
+              <li><a href="../../index.html">Landing Page</a></li>
+              <li><a href="index.php">Inicio</a></li>
+              <li><a href="games.php">Juegos</a></li>
+              <li><a href="eventos.html">Eventos</a></li>
+              <li><a href="premium.html">Premium</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Legal</h6>
+            <ul class="footer-links">
+              <li><a href="legal/aboutus.html">Sobre Nosotros</a></li>
+              <li><a href="forms/contactus.html">Contáctanos</a></li>
+              <!-- <li><a href="">Contribuir [NULL]</a></li> -->
+              <li><a href="legal/privacypolicy.html">Política de Privacidad</a></li>
+              <!-- <li><a href="">Sitemap [NULL]</a></li> -->
+            </ul>
+          </div>
         </div>
-        <div class="carousel-item">
-          <a href="">
-            <img src="../media/hl_bs_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
-          </a>
-        </div>
-        <div class="carousel-item">
-          <a href="">
-            <img src="../media/hl_of_game_cover_HiRes.png" class="d-block" alt="..." style="height:37vw" data-bs-interval="1000">
-          </a>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2024 Todos los Derechos Reservados 
+            <a href="https://github.com/Jozaru27">Jose Zafrilla Ruiz</a>.
+            </p>
+          </div>
+
+          <!-- Icons Taken from https://icons8.com/ <a target="_blank" href="https://icons8.com/icon/12505/steam">Steam</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>--> 
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="github" href="https://github.com/Jozaru27/Critical-Level"><i class="bi-github"></i></a></li>
+              <li><a class="linkedin" href="https://www.linkedin.com/in/jose-zafrilla-ruiz/"><i class="bi-linkedin"></i></a></li>
+              <!-- <li><a class="steam" href="https://steamcommunity.com/id/jozaru"><i class="bi bi-steam"></i></a></li> -->
+              <!--<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>    -->
+            </ul>
+          </div>
         </div>
       </div>
-
-    </div>
-  </div>
-
-  
-  
-  <div class="latest-reviews">
-
-  </div>
-
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-6">
-          <h6>Sobre Critical Level</h6>
-          <p class="text-justify">Critical Level es una simple página web en la cuál recogemos una amplia variedad de videojuegos, además de información relacionada y peritenente a los mismos. El uso de esta página web implica que aceptas, no sólo leer las reglas impuestas en la misma, sino acatarlas para hacer un mejor uso y experiencia tanto para ti como para el resto de usuarios.</p>
-        </div>
-
-        <div class="col-xs-6 col-md-3">
-          <h6>Enlaces</h6>
-          <ul class="footer-links">
-            <li><a href="../../index.html">Landing Page</a></li>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="games.php">Juegos</a></li>
-            <li><a href="eventos.html">Eventos</a></li>
-            <li><a href="premium.html">Premium</a></li>
-          </ul>
-        </div>
-
-        <div class="col-xs-6 col-md-3">
-          <h6>Legal</h6>
-          <ul class="footer-links">
-            <li><a href="legal/aboutus.html">Sobre Nosotros</a></li>
-            <li><a href="forms/contactus.html">Contáctanos</a></li>
-            <!-- <li><a href="">Contribuir [NULL]</a></li> -->
-            <li><a href="legal/privacypolicy.html">Política de Privacidad</a></li>
-            <!-- <li><a href="">Sitemap [NULL]</a></li> -->
-          </ul>
-        </div>
-      </div>
-      <hr>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-6 col-xs-12">
-          <p class="copyright-text">Copyright &copy; 2024 Todos los Derechos Reservados 
-           <a href="https://github.com/Jozaru27">Jose Zafrilla Ruiz</a>.
-          </p>
-        </div>
-
-        <!-- Icons Taken from https://icons8.com/ <a target="_blank" href="https://icons8.com/icon/12505/steam">Steam</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>--> 
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <ul class="social-icons">
-            <li><a class="github" href="https://github.com/Jozaru27/Critical-Level"><i class="bi-github"></i></a></li>
-            <li><a class="linkedin" href="https://www.linkedin.com/in/jose-zafrilla-ruiz/"><i class="bi-linkedin"></i></a></li>
-            <!-- <li><a class="steam" href="https://steamcommunity.com/id/jozaru"><i class="bi bi-steam"></i></a></li> -->
-            <!--<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>    -->
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
   </body>
 </html>

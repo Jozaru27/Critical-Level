@@ -77,6 +77,7 @@ foreach ($data['results'] as $juego) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/MainPageStyle.css">
+    <link rel="stylesheet" href="../../css/fonts.css">
     <link rel="stylesheet" href="../../css/profilesStyle/userProfile.css">
 
     <!-- Bootstrap Icons -->
@@ -86,8 +87,8 @@ foreach ($data['results'] as $juego) {
 </head>
 <body>
 
-<!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
-<nav class="menu-container">
+    <!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
+    <nav class="menu-container">
       <!-- Burger Menu -->
       <input type="checkbox" aria-label="Toggle menu" />
       <span></span>
@@ -195,5 +196,60 @@ foreach ($data['results'] as $juego) {
             ?>
         </div>
     </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+            <h6>Sobre Critical Level</h6>
+            <p class="text-justify">Critical Level es una simple página web en la cuál recogemos una amplia variedad de videojuegos, además de información relacionada y peritenente a los mismos. El uso de esta página web implica que aceptas, no sólo leer las reglas impuestas en la misma, sino acatarlas para hacer un mejor uso y experiencia tanto para ti como para el resto de usuarios.</p>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+            <h6>Enlaces</h6>
+            <ul class="footer-links">
+                <li><a href="../../../index.html">Landing Page</a></li>
+                <li><a href="../index.php">Inicio</a></li>
+                <li><a href="../games.php">Juegos</a></li>
+                <li><a href="../eventos.html">Eventos</a></li>
+                <li><a href="../premium.html">Premium</a></li>
+                <!-- <li><a href="">Yuju [NULL]</a></li> -->
+            </ul>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+            <h6>Legal</h6>
+            <ul class="footer-links">
+                <li><a href="../legal/aboutus.html">Sobre Nosotros</a></li>
+                <li><a href="../forms/contactus.html">Contáctanos</a></li>
+                <!-- <li><a href="">Contribuir [NULL]</a></li> -->
+                <li><a href="../legal/privacypolicy.html">Política de Privacidad</a></li>
+                <!-- <li><a href="">Sitemap [NULL]</a></li> -->
+            </ul>
+            </div>
+        </div>
+        <hr>
+        </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2024 Todos los Derechos Reservados 
+            <a href="https://github.com/Jozaru27">Jose Zafrilla Ruiz</a>.
+            </p>
+            </div>
+
+            <!-- Icons Taken from https://icons8.com/ <a target="_blank" href="https://icons8.com/icon/12505/steam">Steam</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>--> 
+            <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+                <li><a class="github" href="https://github.com/Jozaru27/Critical-Level"><i class="bi-github"></i></a></li>
+                <li><a class="linkedin" href="https://www.linkedin.com/in/jose-zafrilla-ruiz/"><i class="bi-linkedin"></i></a></li>
+                <!-- <li><a class="steam" href="https://steamcommunity.com/id/jozaru"><i class="bi bi-steam"></i></a></li> -->
+                <!--<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>    -->
+            </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
 </body>
 </html>

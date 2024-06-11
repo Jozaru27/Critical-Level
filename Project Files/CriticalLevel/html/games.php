@@ -1,6 +1,17 @@
 <?php
-// Iniciar la sesión para acceder a las variables de sesión
 session_start();
+require_once "../php/database.php";
+
+// Verificar si el usuario ha iniciado sesión y obtener el rol del usuario
+$userLoggedIn = isset($_SESSION['usuario_email']);
+$userRole = null;
+
+if ($userLoggedIn) {
+    $email = $_SESSION['usuario_email'];
+    $stmt = $pdo->prepare("SELECT idROL FROM Usuarios WHERE email = ?");
+    $stmt->execute([$email]);
+    $userRole = $stmt->fetchColumn();
+}
 ?>
 
 <!doctype html>
@@ -34,8 +45,6 @@ session_start();
     <title>Critical Level</title>
 
     <style>
-
-      
       .game-card {
           position: relative;
           display: inline-block;
@@ -69,12 +78,31 @@ session_start();
           margin-top: 20px;
           text-align: center;
       }
+
+      /* Banner Style */
+
+      .bannerContainer{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+          padding: 10px;
+      }
+
+      .imgBanner{
+          max-width: 75%;
+          height: auto;
+      }
+
+      .adBanner{
+          max-width: 35%;
+          height: auto;
+      }
     </style>
   </head>
   <body>
 
-    <!-- https://wweb.dev/resources/navigation-generator - https://freefrontend.com/css-menu/-->
-    <nav class="menu-container">
+  <nav class="menu-container">
       <!-- Burger Menu -->
       <input type="checkbox" aria-label="Toggle menu" />
       <span></span>
@@ -85,58 +113,65 @@ session_start();
       <a href="../../index.html" class="menu-logo">
         <img src="../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
       </a>
-    
-      <!-- Navbar Menu -->
-      <div class="menu">
-        <ul>
+    <!-- Navbar Menu -->
+    <div class="menu">
+      <ul>
+        <li>
+          <a href="index.php">
+              Inicio
+          </a>
+        </li>
+        <li>
+          <a href="games.php">
+              Juegos
+          </a>
+        </li>
+        <li>
+          <a href="eventos.php">
+              Eventos
+          </a>
+        </li>
+        <li>
+          <a href="premium.php">
+              Premium
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <?php if (isset($_SESSION['usuario_email'])): ?>
+          <li>
+            <a href="profiles/profile.php">
+               Perfil
+            </a>
+          </li>
+          <li>
+            <a href="../php/logout.php">
+              Cerrar Sesión
+            </a>
+            </li>
+         <?php else: ?>
             <li>
-                <a href="index.php">
-                    Inicio
-                </a>
+              <a href="forms/signup.html">
+                Registro
+              </a>
             </li>
             <li>
-                <a href="games.php">
-                    Juegos
-                </a>
+              <a href="forms/login.html">
+                Iniciar Sesión
+              </a>
             </li>
-            <li>
-                <a href="#">
-                    Flipes
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    Pipes
-                </a>
-            </li>
-        </ul>
-        <ul>
-            <?php if (isset($_SESSION['usuario_email'])): ?>
-                <li>
-                    <a href="profiles/profile.php">
-                        Perfil
-                    </a>
-                </li>
-                <li>
-                    <a href="../php/logout.php">
-                        Cerrar Sesión
-                    </a>
-                </li>
-            <?php else: ?>
-                <li>
-                    <a href="forms/signup.html">
-                        Registro
-                    </a>
-                </li>
-                <li>
-                    <a href="forms/login.html">
-                        Iniciar Sesión
-                    </a>
-                </li>
-            <?php endif; ?>
-        </ul>
+        <?php endif; ?>
+      </ul>
+    </div>
+  </nav>
+
+
+    <!-- Banner de anuncio -->
+    <?php if (!$userLoggedIn || $userRole == 2): ?>
+      <div class="bannerContainer">
+        <img class="adBanner" src="../media/collab/IG_AD.jpg" alt="Banner de Anuncio">
       </div>
-    </nav>
+    <?php endif; ?>
 
     <!-- Contenido de la página -->
     <div class="container">

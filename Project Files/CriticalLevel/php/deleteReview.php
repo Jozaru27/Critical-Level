@@ -17,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idAPI'])) {
     $stmt = $pdo->prepare("DELETE FROM Reseñas WHERE email = ? AND idAPI = ?");
     $stmt->execute([$email, $idAPI]);
 
+    $stmt = $pdo->prepare("UPDATE Usuarios SET ultimaActividad = NOW() WHERE email = ?");
+    $stmt->execute([$email]);
+
     header("Location: ../html/profiles/game.php?id=" . $idAPI);
     exit;
 } else {

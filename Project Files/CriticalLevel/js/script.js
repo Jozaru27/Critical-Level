@@ -1,4 +1,4 @@
-const apiKey = '3493dbf3242341fb9284060b456efb79'; // Reemplaza 'tu-clave-de-api' con tu clave de API real
+const apiKey = '3493dbf3242341fb9284060b456efb79';
 
 // Función para realizar la llamada a la API de RAWG
 function fetchData() {

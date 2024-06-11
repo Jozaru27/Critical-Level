@@ -1,0 +1,90 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Raleway', Arial, sans-serif;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+/* Review Style */
+.review {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.review p {
+    margin: 10px 0;
+}
+
+.star-rating {
+    font-size: 1.5rem;
+    color: gold;
+}
+
+/* Remove link style */
+.reviews-section .review a {
+    color: black;
+    text-decoration: none; 
+}
+
+.reviews-section .review a:hover {
+    text-decoration: none; 
+}
+
+
+/* Sort Style */
+#sortOptions {
+    margin-right: 20px;
+}
+
+/* Banner Style */
+
+.bannerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.imgBanner{
+    max-width: 75%;
+    height: auto;
+}
+
+.adBanner{
+    max-width: 25%;
+    height: auto;
+}
+
+/* Top Users */
+.top-users {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.top-users .user {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.top-users .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.top-users a {
+    color: #000;
+    text-decoration: none;
+}
+
+.top-users a:hover {
+    text-decoration: underline;
+}

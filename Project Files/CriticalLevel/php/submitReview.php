@@ -30,6 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idAPI'], $_POST['rati
         $stmt->execute([$email, $idAPI, $valoracion, $texto]);
     }
 
+    // Después de actualizar o insertar la reseña en la base de datos
+    // Actualizar la columna ultimaActividad del usuario
+    $stmt = $pdo->prepare("UPDATE Usuarios SET ultimaActividad = NOW() WHERE email = ?");
+    $stmt->execute([$email]);
+
+
     header("Location: ../html/profiles/game.php?id=" . $idAPI);
     exit;
 } else {

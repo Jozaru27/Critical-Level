@@ -1,0 +1,231 @@
+* {
+    font-family: 'Raleway', Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+/* Game Details */
+
+.game-details {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-details img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.game-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.game-details p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Review Window (formerly a modal, thus, the tag names) */
+
+.modal-content {
+    text-align: center;
+    background-color: rgba(48, 43, 43, 0.438);
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid #fffdfdc9;
+}
+
+.modal-header {
+    justify-content: center;
+}
+
+.modal-title{
+    color: white;
+}
+
+.modal-header .btn-close {
+    position: absolute;
+    right: 20px;
+}
+
+.modal-body form .form-label {
+    font-weight: bold;
+}
+
+.modal-body form .form-control {
+    border-radius: 10px;
+}
+
+.modal-body .d-flex {
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-body .d-flex .btn {
+    flex-grow: 1;
+}
+
+.modal-body .d-flex .btn-danger {
+    margin-left: 10px;
+}
+
+.modal-dialog{
+    width: 25%;
+    margin:auto;
+}
+
+.form-control{
+    resize:none;
+}
+
+/* Image */
+
+.imgGame{
+    border: 5px solid #ffffff80;
+}
+
+/* Buttons */
+.btn-modify {
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(255, 105, 180, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-modify:hover {
+    background-color: #ff4e9e;
+    box-shadow: 0 4px 8px rgba(255, 105, 180, 0.5);
+}
+
+.btn-delete {
+    background-color: #ff5252;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(255, 82, 82, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-delete:hover {
+    background-color: #ff1744;
+    box-shadow: 0 4px 8px rgba(255, 82, 82, 0.5);
+}
+
+
+/* Select Style */
+#reviewRating {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Textarea Style */
+#reviewText {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Review Modify/Write/Delete window responsive */
+@media (max-width: 768px) {
+    .modal-dialog {
+        width: 90%;
+    }
+}
+
+/* Posted Reviews Section */
+.reviews-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.review {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+.review p {
+    margin: 5px 0;
+}
+
+.review strong {
+    font-size: 1.1rem;
+}
+
+.review em {
+    color: #6c757d;
+}
+
+.star-rating {
+    font-size: 1.5rem;
+    color: gold;
+}
+.reviews-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.445);
+    border: 2px solid black;
+}
+
+.reviews-section h2{
+    text-align:center;
+}
+
+.review {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.review:last-child {
+    margin-bottom: 0;
+}
+
+.review p {
+    margin: 10px 0;
+}
+
+.review strong {
+    font-weight: bold;
+}
+
+.star-rating {
+    font-size: 1.5rem;
+    color: #f39c12; /* Color naranja */
+}

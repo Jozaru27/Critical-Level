@@ -2,6 +2,11 @@
 session_start();
 require_once "../../php/database.php"; // Incluir archivo de conexión a la base de datos
 
+if (!isset($_SESSION['usuario_email'])) {
+    header("Location: ../forms/login.html");
+    exit;
+}
+
 if (!isset($_GET['id'])) {
     die("ID del juego no especificado.");
 }
@@ -25,7 +30,6 @@ $stmt = $pdo->prepare("SELECT Reseñas.*, Usuarios.nombre_usuario, Usuarios.user
 $stmt->execute([$gameId]);
 $reseñas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
 // Verificar si el usuario ya ha enviado una reseña para este juego
 $userHasReseña = false;
 $existingReseña = null;
@@ -46,6 +50,19 @@ foreach ($reseñas as $reseña) {
 }
 $valoracionMedia = $numeroReseñas > 0 ? $totalValoraciones / $numeroReseñas : "No hay valoraciones";
 
+// Función para mostrar estrellas
+function mostrarEstrellas($valoracion) {
+    $estrellas = '';
+    for ($i = 0; $i < 5; $i++) {
+        if ($i < $valoracion) {
+            $estrellas .= '★';
+        } else {
+            $estrellas .= '☆';
+        }
+    }
+    return $estrellas;
+}
+
 ?>
 
 <!doctype html>
@@ -54,77 +71,145 @@ $valoracionMedia = $numeroReseñas > 0 ? $totalValoraciones / $numeroReseñas : 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($game['name']); ?> - Critical Level</title>
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/MainPageStyle.css">
-    <link rel="stylesheet" href="../css/GamePageStyle.css">
+    <link rel="stylesheet" href="../../css/fonts.css">
+    <link rel="stylesheet" href="../../css/MainPageStyle.css">
+    <link rel="stylesheet" href="../../css/GamePageStyle.css">
+    <link rel="stylesheet" href="../../css/profilesStyle/gameStyle.css">
     <link rel="icon" type="image/x-icon" href="../media/CL_Logo_Blue_Hex/favicon.ico">
     <link href="../libraries/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../libraries/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <nav class="menu-container">
-        <!-- Your existing navigation code -->
-    </nav>
+
+<nav class="menu-container">
+      <!-- Burger Menu -->
+      <input type="checkbox" aria-label="Toggle menu" />
+      <span></span>
+      <span></span>
+      <span></span>
+    
+      <!-- Logo -->
+      <a href="../../index.html" class="menu-logo">
+        <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
+      </a>
+    
+      <!-- Navbar Menu -->
+      <div class="menu">
+        <ul>
+            <li>
+                <a href="../index.php">
+                    Inicio
+                </a>
+            </li>
+            <li>
+                <a href="../games.php">
+                    Juegos
+                </a>
+            </li>
+            <li>
+                <a href="../eventos.php">
+                    Eventos
+                </a>
+            </li>
+            <li>
+                <a href="../premium.php">
+                    Premium
+                </a>
+            </li>
+        </ul>
+        <ul>
+            <?php if (isset($_SESSION['usuario_email'])): ?>
+                <li>
+                    <a href="profile.php">
+                        Perfil
+                    </a>
+                </li>
+                <li>
+                    <a href="../../php/logout.php">
+                        Cerrar Sesión
+                    </a>
+                </li>
+            <?php else: ?>
+                <li>
+                    <a href="../forms/signup.html">
+                        Registro
+                    </a>
+                </li>
+                <li>
+                    <a href="../forms/login.html">
+                        Iniciar Sesión
+                    </a>
+                </li>
+            <?php endif; ?>
+        </ul>
+      </div>
+    </nav> 
 
     <div class="container">
         <div class="game-details">
             <h1><?php echo htmlspecialchars($game['name']); ?></h1>
-            <img src="<?php echo $game['background_image']; ?>" alt="<?php echo htmlspecialchars($game['name']); ?>">
+            <img class="imgGame" src="<?php echo $game['background_image']; ?>" alt="<?php echo htmlspecialchars($game['name']); ?>">
             <p>Released: <?php echo htmlspecialchars($game['released']); ?></p>
-            <p>Valoración Media: <?php echo htmlspecialchars($valoracionMedia); ?></p>
+            <p>Valoración Media: <span class="star-rating"><?php echo mostrarEstrellas(round($valoracionMedia)); ?></span></p>
         </div>
+        <br><br>
 
-        <?php if (isset($_SESSION['usuario_email'])): ?>
-            <label class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reviewModal"><?php echo $userHasReseña ? "Modificar Reseña" : "Escribir Reseña"; ?></label>
-            <?php if ($userHasReseña): ?>
-                <form action="../../php/deleteReview.php" method="POST" style="display:inline;">
-                    <input type="hidden" name="idAPI" value="<?php echo $gameId; ?>">
-                    <button type="submit" class="btn btn-danger">Eliminar Reseña</button>
-                </form>
-            <?php endif; ?>
-        <?php endif; ?>
-
-            <!-- Modal para escribir/modificar reseña -->
+        <!-- Modal para escribir/modificar reseña -->
         <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="reviewModalLabel"><?php echo $userHasReseña ? "Modificar Reseña" : "Escribir Reseña"; ?></h5>
-                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                        <h2 class="modal-title" id="reviewModalLabel"><?php echo $userHasReseña ? "Modificar Reseña" : "Escribir Reseña"; ?></h2>
                     </div>
                     <div class="modal-body">
                         <form action="../../php/submitReview.php" method="POST">
                             <input type="hidden" name="idAPI" value="<?php echo $gameId; ?>">
                             <div class="mb-3">
-                                <label for="reviewRating" class="form-label">Valoración</label>
+                                <label for="reviewRating" class="form-label">Valoración</label><br>
                                 <input type="number" class="form-control" id="reviewRating" name="rating" min="1" max="5" required value="<?php echo $userHasReseña ? htmlspecialchars($existingReseña['valoración']) : ''; ?>">
-                            </div>
+                            </div><br>
                             <div class="mb-3">
-                                <label for="reviewText" class="form-label">Texto</label>
+                                <label for="reviewText" class="form-label">Contenido de la reseña</label><br>
                                 <textarea class="form-control" id="reviewText" name="text" rows="3" required><?php echo $userHasReseña ? htmlspecialchars($existingReseña['texto']) : ''; ?></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary"><?php echo $userHasReseña ? "Modificar Reseña" : "Enviar"; ?></button>
-                        </form>
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" class="btn btn-primary btn-modify"><?php echo $userHasReseña ? "Confirmar Cambios" : "Enviar Reseña"; ?></button>
+                            </div>
+                        </form><br>
+                        <?php if ($userHasReseña): ?>
+                            <form action="../../php/deleteReview.php" method="POST" style="display:inline;">
+                                <input type="hidden" name="idAPI" value="<?php echo $gameId; ?>">
+                                <button type="submit" class="btn btn-danger btn-delete">Eliminar Reseña</button>
+                            </form>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
+        <br><br>
 
         <div class="reviews-section">
             <h2>Reseñas</h2>
             <?php foreach ($reseñas as $reseña): ?>
                 <div class="review">
-                    <p><strong> <?php
-                            if ($reseña['email'] == $_SESSION['usuario_email']) {
-                                echo '<a href="profile.php">' . htmlspecialchars($reseña['nombre_usuario']) . '</a>';
-                            } else {
-                                echo '<a href="userProfile.php?code=' . urlencode($reseña['userCode']) . '">' . htmlspecialchars($reseña['nombre_usuario']) . '</a>';
-                            }
-                            ?>
-                            </strong> 
-                            valoró con <?php echo htmlspecialchars($reseña['valoración']); ?>/5</p>
-                    <p><?php echo nl2br(htmlspecialchars($reseña['texto'])); ?></p>
-                    <p><em>Fecha: <?php echo htmlspecialchars($reseña['fecha_creación']); ?></em></p>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <strong>
+                                <?php if ($reseña['email'] == $_SESSION['usuario_email']): ?>
+                                    <a href="profile.php"><?php echo htmlspecialchars($reseña['nombre_usuario']); ?></a>
+                                <?php else: ?>
+                                    <a href="userProfile.php?code=<?php echo urlencode($reseña['userCode']); ?>"><?php echo htmlspecialchars($reseña['nombre_usuario']); ?></a>
+                                <?php endif; ?>
+                            </strong>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="star-rating"><?php echo mostrarEstrellas($reseña['valoración']); ?></span>
+                        </div>
+                        <div class="col-md-8">
+                            <p><?php echo nl2br(htmlspecialchars($reseña['texto'])); ?></p>
+                            <p><em>Fecha: <?php echo htmlspecialchars($reseña['fecha_creación']); ?></em></p>
+                        </div>
+                    </div>
                 </div>
             <?php endforeach; ?>
         </div>
