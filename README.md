@@ -38,19 +38,16 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ✔️ | Dynamic Profiles |
 | ✔️ | Add profile edition/deletion |
 | ✔️ | Create proper games page + Pretty API |
-| ❌ | Add sessions and roles security checks |
-| ❌ | Main Page (dependant on certain review checks) |
+| ✔️ | Add sessions and roles security checks |
+| ✔️ | Main Page (dependant on certain review checks) |
 | ❌ | Sitemap Page + Events Page + Buy membership & change role page |
 | ❌ | Test web with ZAP for any security breach |
 
 * Games Page - Better Pagination and Search Bar System + Add filters
 * Game Page - Add Review Order Filter
 * Add Review Order Filter
-* ADS in game page + reviews - Show for roles 2, but not 3 and 1
 * EVENTS. People with roles 2 can participate, 3 can participate in tournament
 * Membership Buying Page - Add basic support + No Ads / No ads + Tournament (Gonna have to make another role)
-* Individual Game Page Style + Review System style
-* Main page - Depends on certain review Checks - Latest Reviews, Highest Reviewed Games, Lowest Reviewed Games
 * Refactor and Reduce Code + English Commentary
 * Landing Page + Prettier stats + DB stats
 * Age check WHEN REGISTERING OR ACCESSING GAMES - Could use cookies
@@ -63,9 +60,6 @@ The page will work as a IMDB-like service, in which people can either check othe
 * Fix promise code - Main Script in landing page
 * Check all links and routes
 * Separate scripts and styles
-* F1 BANNER - Add
-* Cuando creas reseña - update última actividad
-* Fonts
 
 * Automatic Moderation
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
