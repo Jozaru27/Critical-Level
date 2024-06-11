@@ -45,7 +45,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 
 * Games Page - Better Pagination and Search Bar System + Add filters
 * Game Page - Add Review Order Filter
-* Profile Page - Delete button + Edit Profile Picture + Display Data in a prettier CSS + Add Review Order Filter
+* Add Review Order Filter
 * ADS in game page + reviews - Show for roles 2, but not 3 and 1
 * EVENTS. People with roles 2 can participate, 3 can participate in tournament
 * Membership Buying Page - Add basic support + No Ads / No ads + Tournament (Gonna have to make another role)
@@ -65,7 +65,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 * Separate scripts and styles
 * F1 BANNER - Add
 * Cuando creas reseña - update última actividad
-* stats de la landign page - bd
+* Fonts
 
 * Automatic Moderation
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
