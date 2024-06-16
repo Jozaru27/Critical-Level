@@ -45,17 +45,14 @@ The page will work as a IMDB-like service, in which people can either check othe
 
 * Games Page - Better Pagination and Search Bar System + Add filters
 * Refactor and Reduce Code + English Commentary
+* Separate scripts and styles
 * Landing Page + Prettier stats + DB stats
+
 * Age check WHEN REGISTERING OR ACCESSING GAMES - Could use cookies
-* Fix error header login
-* Login Forgot Password
-* Login No Account? Register
-* Register Already Account? Log in
-* Password Email check
 * Flag for country - at profile
 * Fix promise code - Main Script in landing page
 * Check all links and routes
-* Separate scripts and styles
+
 
 * Automatic Moderation
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
