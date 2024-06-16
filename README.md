@@ -40,14 +40,10 @@ The page will work as a IMDB-like service, in which people can either check othe
 | ✔️ | Create proper games page + Pretty API |
 | ✔️ | Add sessions and roles security checks |
 | ✔️ | Main Page (dependant on certain review checks) |
-| ❌ | Sitemap Page + Events Page + Buy membership & change role page |
+| ✔️ | Events Page + Buy membership & change role page |
 | ❌ | Test web with ZAP for any security breach |
 
 * Games Page - Better Pagination and Search Bar System + Add filters
-* Game Page - Add Review Order Filter
-* Add Review Order Filter
-* EVENTS. People with roles 2 can participate, 3 can participate in tournament
-* Membership Buying Page - Add basic support + No Ads / No ads + Tournament (Gonna have to make another role)
 * Refactor and Reduce Code + English Commentary
 * Landing Page + Prettier stats + DB stats
 * Age check WHEN REGISTERING OR ACCESSING GAMES - Could use cookies
@@ -64,6 +60,7 @@ The page will work as a IMDB-like service, in which people can either check othe
 * Automatic Moderation
 * imgGen = https://dynamic-image.vercel.app/#eyJ0aGVtZSI6InJhbmRvbSJ9
 * ZAP AND https://cors-test.codehappy.dev/
+* Accesibilidad
 * Check HTML and CSS validation
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
