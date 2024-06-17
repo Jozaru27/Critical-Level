@@ -2,6 +2,7 @@
 session_start();
 require_once "database.php";
 
+// Checks if user is logged in
 if (!isset($_SESSION['usuario_email'])) {
     echo "No autorizado";
     exit;
@@ -9,7 +10,8 @@ if (!isset($_SESSION['usuario_email'])) {
 
 $email = $_SESSION['usuario_email'];
 
-$sql = "DELETE FROM Usuarios WHERE email = ?";
+// Deletes the user from the DB
+$sql = "DELETE FROM usuarios WHERE email = ?";
 $stmt = $pdo->prepare($sql);
 if ($stmt->execute([$email])) {
     session_destroy();

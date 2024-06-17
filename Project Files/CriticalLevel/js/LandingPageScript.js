@@ -8,33 +8,50 @@ const baseUrl = 'https://api.rawg.io/api';
 async function getInitialStats() {
   try {
     //API fetch for games and genres
-    const [gamesResponse, genresResponse, platformsResponse] = await Promise.all([
+    const [gamesResponse, genresResponse] = await Promise.all([
       fetch(`${baseUrl}/games?key=${apiKey}`),
-      fetch(`${baseUrl}/genres?key=${apiKey}`),
-      // fetch(`${baseUrl}/platforms?key=${apiKey}`)
+      fetch(`${baseUrl}/genres?key=${apiKey}`)
     ]);
 
     const gamesData = await gamesResponse.json();
     const genresData = await genresResponse.json();
-    // const platformsData = await platformsResponse.json();
 
     // Obtains the total numbers
     const totalGames = gamesData.count;
     const totalGenres = genresData.results.length;
-    // const totalPlatforms = platformsData.results.length;
 
     // Adds a comma as a separator
     const formattedTotalGames = totalGames.toLocaleString();
     const formattedTotalGenres = totalGenres.toLocaleString();
-    // const formattedTotalPlatforms = totalPlatforms.toLocaleString();
 
     // Updates the html text, replacing the spinning/loading effect with actual information
     document.getElementById('totalGames').innerText = `Videojuegos: ${formattedTotalGames}`;
     document.getElementById('totalGenres').innerText = `Géneros Diferentes: ${formattedTotalGenres}`;
-    // document.getElementById('totalPlatforms').innerText = `Plataformas: ${formattedTotalPlatforms}`;
 
   } catch (error) {
     console.error('Error al obtener los datos:', error);
+  }
+}
+
+// Function to obtain review and user stats from the database
+async function getDbStats() {
+  try {
+    const response = await fetch('CriticalLevel/php/getStats.php');
+    const data = await response.json();
+
+    if (data.error) {
+      console.error('Error al obtener los datos de la base de datos:', data.error);
+      return;
+    }
+
+    const formattedTotalReseñas = data.totalReseñas.toLocaleString();
+    const formattedTotalUsuarios = data.totalUsuarios.toLocaleString();
+
+    // Updates the html text with database stats
+    document.getElementById('totalReseñas').innerText = `Críticas: ${formattedTotalReseñas}`;
+    document.getElementById('totalUsuarios').innerText = `Usuarios: ${formattedTotalUsuarios}`;
+  } catch (error) {
+    console.error('Error al obtener los datos de la base de datos:', error);
   }
 }
 
@@ -63,5 +80,6 @@ function mostrarFraseAleatoria() {
 // Whenever the window is loaded, fetches the stats from the api + the quotes and loads them into the landing page
 window.onload = function() {
   getInitialStats();
+  getDbStats();
   mostrarFraseAleatoria();
 };

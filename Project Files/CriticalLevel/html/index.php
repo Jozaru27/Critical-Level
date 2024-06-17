@@ -2,13 +2,13 @@
 session_start();
 require_once "../php/database.php";
 
-// Verificar si el usuario ha iniciado sesión y obtener el rol del usuario
+// Verifies if user is logged and the role
 $userLoggedIn = isset($_SESSION['usuario_email']);
 $userRole = null;
 
 if ($userLoggedIn) {
     $email = $_SESSION['usuario_email'];
-    $stmt = $pdo->prepare("SELECT idROL FROM Usuarios WHERE email = ?");
+    $stmt = $pdo->prepare("SELECT idROL FROM usuarios WHERE email = ?");
     $stmt->execute([$email]);
     $userRole = $stmt->fetchColumn();
 }
@@ -39,6 +39,8 @@ if ($userLoggedIn) {
 
     <!-- Script -->
     <script src="../js/script.js"></script>
+    <script src="../js/indexGetReviewsHandler.js"></script>
+    <script src="../js/randomGame.js"></script>
     
     <!-- Main Page -->
     <title>Critical Level</title>
@@ -53,7 +55,7 @@ if ($userLoggedIn) {
       <span></span>
     
       <!-- Logo -->
-      <a href="../../index.html" class="menu-logo">
+      <a href="../../index.php" class="menu-logo">
         <img src="../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
       </a>
     
@@ -125,25 +127,33 @@ if ($userLoggedIn) {
             </select>
         </div>
         <div id="reviewsContainer">
-            <!-- Aquí se cargarán las reseñas -->
+            <!-- Reviews Load here -->
         </div>
     </div>
-    <script src="../js/indexGetReviewsHandler.js"></script>
 
-    <!-- Banner de anuncio -->
+    <!-- Ad Banner -->
     <?php if (!$userLoggedIn || $userRole == 2): ?>
     <div class="bannerContainer">
       <img class="adBanner" src="../media/collab/STEAM_AD.jpg" alt="Banner de Anuncio">
     </div>
     <?php endif; ?>
 
-    <!-- Módulo de usuarios más activos -->
+    <!-- Top Users Module -->
     <div class="top-users mt-5">
-        <h2>Top 5 Usuarios Más Activos</h2>
-        <div id="topUsersContainer">
-            <?php include '../php/getTopUsers.php'; ?>
-        </div>
+      <h2>Top 5 Usuarios Más Activos</h2>
+      <div id="topUsersContainer">
+          <?php include '../php/getTopUsers.php'; ?>
+      </div>
+    </div><br>
+
+    <!-- Random Game Module -->
+    <div class="random-game">
+    <h2>Prueba un juego al azar</h2>
+      <img src="https://mario.wiki.gallery/images/thumb/7/7f/Question_Block_-_Nintendo_JP_website.png/1200px-Question_Block_-_Nintendo_JP_website.png" alt="Interrogante" id="randomGameImg">
     </div>
+
+    <div id="gameDetail"></div>
+
     
     <!-- Site Footer -->
     <footer class="site-footer">
@@ -160,8 +170,8 @@ if ($userLoggedIn) {
               <li><a href="../../index.html">Landing Page</a></li>
               <li><a href="index.php">Inicio</a></li>
               <li><a href="games.php">Juegos</a></li>
-              <li><a href="eventos.html">Eventos</a></li>
-              <li><a href="premium.html">Premium</a></li>
+              <li><a href="eventos.php">Eventos</a></li>
+              <li><a href="premium.php">Premium</a></li>
             </ul>
           </div>
 

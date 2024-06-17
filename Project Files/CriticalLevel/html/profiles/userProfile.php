@@ -10,8 +10,8 @@ $userCode = $_GET['code'];
 
 $juegos = [];
 
-// Obtener información del usuario desde la base de datos utilizando el userCode
-$stmt = $pdo->prepare("SELECT * FROM Usuarios WHERE userCode = ?");
+// Obtians user data from the DB using the secret userCode
+$stmt = $pdo->prepare("SELECT * FROM usuarios WHERE userCode = ?");
 $stmt->execute([$userCode]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -19,15 +19,15 @@ if (!$usuario) {
     die("Usuario no encontrado.");
 }
 
-// Obtener reseñas del usuario desde la base de datos
-$stmt = $pdo->prepare("SELECT Reseñas.*, Usuarios.nombre_usuario 
-                       FROM Reseñas 
-                       JOIN Usuarios ON Reseñas.email = Usuarios.email 
-                       WHERE Reseñas.email = ?");
+// Obtains user reviews from the DB
+$stmt = $pdo->prepare("SELECT reseñas.*, usuarios.nombre_usuario 
+                       FROM reseñas 
+                       JOIN usuarios ON reseñas.email = usuarios.email 
+                       WHERE reseñas.email = ?");
 $stmt->execute([$usuario['email']]);
 $reseñas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Calcular la media de las valoraciones
+// Sets average score for the reviews
 $totalValoraciones = 0;
 $numeroReseñas = count($reseñas);
 foreach ($reseñas as $reseña) {
@@ -51,18 +51,18 @@ if ($rol == 1) {
     $badgeClass = 'text-bg-warning'; // Yellow for Premium
 }
 
-// Array para almacenar los IDs de juegos
+// Array to store game IDS
 $idJuegos = [];
 foreach ($reseñas as $reseña) {
     $idJuegos[] = $reseña['idAPI'];
 }
 
-// Realizar llamada a la API para obtener los títulos de los juegos
+// Api call to obtain game title names
 $apiUrl = "https://api.rawg.io/api/games?key=" . $apiKey . "&ids=" . implode(',', $idJuegos);
 $response = file_get_contents($apiUrl);
 $data = json_decode($response, true);
 
-// Crear un array asociativo de idAPI a título
+// Creates associative array from idAPI to title
 $juegos = [];
 foreach ($data['results'] as $juego) {
     $juegos[$juego['id']] = $juego['name'];
@@ -96,7 +96,7 @@ foreach ($data['results'] as $juego) {
       <span></span>
     
       <!-- Logo -->
-      <a href="../../index.html" class="menu-logo">
+      <a href="../../../index.php" class="menu-logo">
         <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
       </a>
     
@@ -173,12 +173,12 @@ foreach ($data['results'] as $juego) {
 
         <div id="reseñasContainer">
             <?php
-            // Mostrar las reseñas del usuario
+            // Shows users reviews
             foreach ($reseñas as $reseña) {
                 echo "<div class='review-container'>";
                 echo "<p><strong>Juego:</strong> <a href='http://criticallevel.myddns.me/CriticalLevel/html/profiles/game.php?id=" . $reseña['idAPI'] . "'>" . htmlspecialchars($juegos[$reseña['idAPI']]) . "</a></p>";
                 
-                // Mostrar estrellas de valoración
+                // Shows score stars
                 echo "<p><strong>Valoración:</strong> ";
                 for ($i = 1; $i <= 5; $i++) {
                     if ($i <= $reseña['valoración']) {

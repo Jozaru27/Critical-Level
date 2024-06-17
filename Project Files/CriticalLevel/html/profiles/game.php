@@ -1,11 +1,6 @@
 <?php
 session_start();
-require_once "../../php/database.php"; // Incluir archivo de conexión a la base de datos
-
-if (!isset($_SESSION['usuario_email'])) {
-    header("Location: ../forms/login.html");
-    exit;
-}
+require_once "../../php/database.php"; // Include file
 
 if (!isset($_GET['id'])) {
     die("ID del juego no especificado.");
@@ -15,26 +10,26 @@ $gameId = $_GET['id'];
 $apiKey = '3493dbf3242341fb9284060b456efb79';
 $gameDetailsUrl = "https://api.rawg.io/api/games/{$gameId}?key={$apiKey}";
 
-// Obtener detalles del juego desde la API
+// Obtain game details from API
 $gameDetails = @file_get_contents($gameDetailsUrl); // Usar @ para suprimir errores y manejarlos manualmente
 if ($gameDetails === FALSE) {
     die("No se pudo obtener la información del juego. Verifica tu API key.");
 }
 $game = json_decode($gameDetails, true);
 
-// Obtener reseñas del juego desde la base de datos
-$stmt = $pdo->prepare("SELECT Reseñas.*, Usuarios.nombre_usuario, Usuarios.userCode 
-                       FROM Reseñas 
-                       JOIN Usuarios ON Reseñas.email = Usuarios.email 
-                       WHERE Reseñas.idAPI = ?");
+// Obtain reviews from DB
+$stmt = $pdo->prepare("SELECT reseñas.*, usuarios.nombre_usuario, usuarios.userCode 
+                       FROM reseñas 
+                       JOIN usuarios ON reseñas.email = usuarios.email 
+                       WHERE reseñas.idAPI = ?");
 $stmt->execute([$gameId]);
 $reseñas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Verificar si el usuario ya ha enviado una reseña para este juego
+// Verifies if the user has already sent in a review for this game
 $userHasReseña = false;
 $existingReseña = null;
 if (isset($_SESSION['usuario_email'])) {
-    $stmt = $pdo->prepare("SELECT * FROM Reseñas WHERE idAPI = ? AND email = ?");
+    $stmt = $pdo->prepare("SELECT * FROM reseñas WHERE idAPI = ? AND email = ?");
     $stmt->execute([$gameId, $_SESSION['usuario_email']]);
     $existingReseña = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($existingReseña) {
@@ -42,15 +37,18 @@ if (isset($_SESSION['usuario_email'])) {
     }
 }
 
-// Calcular la media de las valoraciones
+// Sets the average score for the review
+$valoracionMedia = "¡Sé el primero en reseñar este juego!";
 $totalValoraciones = 0;
 $numeroReseñas = count($reseñas);
-foreach ($reseñas as $reseña) {
-    $totalValoraciones += $reseña['valoración'];
+if ($numeroReseñas > 0) {
+    $totalValoraciones = array_reduce($reseñas, function ($carry, $reseña) {
+        return $carry + $reseña['valoración'];
+    }, 0);
+    $valoracionMedia = $totalValoraciones / $numeroReseñas;
 }
-$valoracionMedia = $numeroReseñas > 0 ? $totalValoraciones / $numeroReseñas : "No hay valoraciones";
 
-// Función para mostrar estrellas
+// Shows stars based on score
 function mostrarEstrellas($valoracion) {
     $estrellas = '';
     for ($i = 0; $i < 5; $i++) {
@@ -89,7 +87,7 @@ function mostrarEstrellas($valoracion) {
       <span></span>
     
       <!-- Logo -->
-      <a href="../../index.html" class="menu-logo">
+      <a href="../../../index.php" class="menu-logo">
         <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
       </a>
     
@@ -145,16 +143,17 @@ function mostrarEstrellas($valoracion) {
       </div>
     </nav> 
 
-    <div class="container">
-        <div class="game-details">
-            <h1><?php echo htmlspecialchars($game['name']); ?></h1>
-            <img class="imgGame" src="<?php echo $game['background_image']; ?>" alt="<?php echo htmlspecialchars($game['name']); ?>">
-            <p>Released: <?php echo htmlspecialchars($game['released']); ?></p>
-            <p>Valoración Media: <span class="star-rating"><?php echo mostrarEstrellas(round($valoracionMedia)); ?></span></p>
-        </div>
-        <br><br>
+<div class="container">
+    <div class="game-details">
+        <h1><?php echo htmlspecialchars($game['name']); ?></h1>
+        <img class="imgGame" src="<?php echo $game['background_image']; ?>" alt="<?php echo htmlspecialchars($game['name']); ?>">
+        <p>Released: <?php echo htmlspecialchars($game['released']); ?></p>
+        <p>Valoración Media: <span class="star-rating"><?php echo is_numeric($valoracionMedia) ? mostrarEstrellas(round($valoracionMedia)) : $valoracionMedia; ?></span></p>
+    </div>
+    <br><br>
 
-        <!-- Modal para escribir/modificar reseña -->
+    <!-- Modal to write/modify delete review -->
+    <?php if (isset($_SESSION['usuario_email'])): ?>
         <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -186,16 +185,19 @@ function mostrarEstrellas($valoracion) {
                 </div>
             </div>
         </div>
-        <br><br>
+    <?php endif; ?>
+    <br><br>
 
-        <div class="reviews-section">
-            <h2>Reseñas</h2>
+    <!-- Review Section for the game -->
+    <div class="reviews-section">
+        <h2>Reseñas</h2>
+        <?php if ($numeroReseñas > 0): ?>
             <?php foreach ($reseñas as $reseña): ?>
                 <div class="review">
                     <div class="row">
                         <div class="col-md-2">
                             <strong>
-                                <?php if ($reseña['email'] == $_SESSION['usuario_email']): ?>
+                                <?php if (isset($_SESSION['usuario_email']) && $reseña['email'] == $_SESSION['usuario_email']): ?>
                                     <a href="profile.php"><?php echo htmlspecialchars($reseña['nombre_usuario']); ?></a>
                                 <?php else: ?>
                                     <a href="userProfile.php?code=<?php echo urlencode($reseña['userCode']); ?>"><?php echo htmlspecialchars($reseña['nombre_usuario']); ?></a>
@@ -212,7 +214,8 @@ function mostrarEstrellas($valoracion) {
                     </div>
                 </div>
             <?php endforeach; ?>
-        </div>
+        <?php else: ?>
+            <p>¡Sé el primero en reseñar este juego!</p>
+        <?php endif; ?>
     </div>
-</body>
-</html>
+</div>

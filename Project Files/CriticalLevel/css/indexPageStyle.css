@@ -71,6 +71,14 @@ h1 {
     display: inline-block;
     margin: 10px;
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 3%;
+    border-radius: 15px;
+    transition-duration: 0.5s;
+}
+
+.top-users .user:hover {
+    transform: scale(1.05);
 }
 
 .top-users .profile-picture {
@@ -87,4 +95,28 @@ h1 {
 
 .top-users a:hover {
     text-decoration: underline;
+}
+
+/* Random Game */
+
+.random-game {
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 50px;
+}
+
+#randomGameImg {
+    width: 550px; 
+    height: auto; 
+    cursor: pointer; 
+}
+
+
+.profile-pic {
+    width: 50px; /* Ajusta el tamaño según sea necesario */
+    height: 50px; /* Ajusta el tamaño según sea necesario */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    vertical-align: middle;
 }

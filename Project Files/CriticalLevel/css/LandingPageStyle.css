@@ -41,48 +41,6 @@ body {
   font-weight: bold;
 }
 
-/* .stats-container p:first-child {
-  color: #1e90ff; 
-}
-
-.stats-container p:nth-child(2) {
-  color: #32cd32;
-}
-
-.stats-container p:nth-child(3) {
-  color: #ff6347; 
-}
-
-.stats-container p:nth-child(4) {
-  color: #ffa500; 
-}
-
-.stats-container p:nth-child(5) {
-  color: #9370db; 
-} */
-
-
-/* Board Section */
-/* .board{
-    text-align: center;
-    color: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.boardElement{
-    background-color:rgba(0, 0, 0, 0.250);
-    border-radius: 15px;
-    width: 30%;
-    padding: 1vw;
-    transition: transform 0.5s ease;
-}
-
-.boardElement:hover {
-    transform: scale(1.1);
-} */
-
 /* Button Section*/
 .button{
     text-align: center;

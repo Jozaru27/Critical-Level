@@ -8,6 +8,9 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* profile */
+
 .profile-container {
     max-width: 900px;
     margin: 20px auto;
@@ -16,12 +19,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
 }
+
 .profile-header {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #394b59;
     padding-bottom: 20px;
 }
+
 .profile-header img {
     border-radius: 50%;
     width: 150px;
@@ -31,18 +36,25 @@ body {
     border: 5px solid #4a90e2;
     transition: all 0.5s ease-in-out;
 }
+
 .profile-header img:hover {
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
+
 .profile-header h1 {
     margin: 0;
 }
+
 .profile-info {
     margin-top: 20px;
 }
+
 .profile-info p {
     margin: 10px 0;
 }
+
+/* profile buttons */
+
 .edit-button {
     display: block;
     margin: 20px auto;
@@ -53,9 +65,11 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .edit-button:hover {
     background-color: #357abd;
 }
+
 .delete-button {
     display: block;
     margin: 20px auto;
@@ -67,9 +81,13 @@ body {
     cursor: pointer;
     text-align: center;
 }
+
 .delete-button:hover {
     background-color: #c9302c;
 }
+
+/* modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -82,6 +100,7 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 60px;
 }
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
@@ -91,6 +110,7 @@ body {
     max-width: 600px;
     border-radius: 10px;
 }
+
 .modal-content input, .modal-content textarea, .modal-content select {
     width: calc(100% - 22px);
     padding: 10px;
@@ -98,6 +118,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .modal-content button {
     display: block;
     margin: 20px auto;
@@ -108,20 +129,25 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .modal-content button:hover {
     background-color: #357abd;
 }
+
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
+
 .close:hover, .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
+
+/* review */
 .review-container {
     background: rgba(0, 0, 0, 0.5);
     padding: 15px;
@@ -130,16 +156,20 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease-in-out;
 }
+
 .review-container:hover {
     box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
 }
+
 .review-container a {
     color: #4a90e2;
     text-decoration: none;
 }
+
 .review-container a:hover {
     text-decoration: underline;
 }
+
 .review-container p {
     margin: 5px 0;
 }

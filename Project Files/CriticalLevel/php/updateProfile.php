@@ -2,31 +2,31 @@
 session_start();
 require_once "database.php";
 
-// Verificar si el usuario ha iniciado sesión
+// Verify if the user has logged in
 if (!isset($_SESSION['usuario_email'])) {
     header("Location: ../forms/login.html");
     exit;
 }
 
-// Obtener el email del usuario de la sesión
+// Obtains email from the session
 $email = $_SESSION['usuario_email'];
 
-// Obtener los datos enviados por el formulario
+// Obtains data sent in form
 $nombre_usuario = $_POST['nombre_usuario'];
 $bio = $_POST['bio'];
 $pais = $_POST['pais'];
 
-// Ruta de la carpeta de subida
+// Upload directory path (to correct from DB)
 $uploadDir = '../media/profilePics/';
 
-// Crear la carpeta si no existe
+// Creates folder if it doesnt exist
 if (!is_dir($uploadDir)) {
     if (!mkdir($uploadDir, 0777, true)) {
         die('Failed to create folders...');
     }
 }
 
-// Manejo de la imagen subida
+// Handle how to upload image
 if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] == UPLOAD_ERR_OK) {
     $imagen_tmp = $_FILES['fotoPerfil']['tmp_name'];
     $imagen_nombre = basename($_FILES['fotoPerfil']['name']);
@@ -37,10 +37,10 @@ if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] == UPLOAD_ERR
         $nuevo_nombre_imagen = uniqid() . '.' . $imagen_ext;
         $ruta_destino = $uploadDir . $nuevo_nombre_imagen;
         if (move_uploaded_file($imagen_tmp, $ruta_destino)) {
-            // Construir la ruta relativa para almacenar en la base de datos
+            // Builds path
             $ruta_relativa = '../../media/profilePics/' . $nuevo_nombre_imagen;
-            // Actualizar la ruta de la imagen en la base de datos
-            $sql = "UPDATE Usuarios SET fotoPerfil = ? WHERE email = ?";
+            // Updates image path
+            $sql = "UPDATE usuarios SET fotoPerfil = ? WHERE email = ?";
             $stmt = $pdo->prepare($sql);
             if (!$stmt->execute([$ruta_relativa, $email])) {
                 die('Error updating profile picture.');
@@ -53,8 +53,8 @@ if (isset($_FILES['fotoPerfil']) && $_FILES['fotoPerfil']['error'] == UPLOAD_ERR
     }
 }
 
-// Actualizar los demás campos del usuario en la base de datos
-$sql = "UPDATE Usuarios SET nombre_usuario = ?, bio = ?, pais = ? WHERE email = ?";
+// Update other fields in the DB
+$sql = "UPDATE usuarios SET nombre_usuario = ?, bio = ?, pais = ? WHERE email = ?";
 $stmt = $pdo->prepare($sql);
 if ($stmt->execute([$nombre_usuario, $bio, $pais, $email])) {
     echo "Perfil actualizado con éxito";

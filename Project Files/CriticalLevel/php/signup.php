@@ -1,18 +1,25 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
 require_once "database.php";
 
-// Verificar si se ha enviado el formulario
+// Verify if form ahs been sent
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recuperar datos del formulario
+    // Gather form data
     $nombre = $_POST["nombre_usuario"];
     $email = $_POST["email"];
     $contraseña = $_POST["contraseña"];
+    $contraseñaConfirmar = $_POST["contraseñaConfirmar"];
 
-    // Generar el hash de la contraseña
+    // Verify if the passwords are correct
+    if ($contraseña !== $contraseñaConfirmar) {
+        echo "Las contraseñas no coinciden.";
+        header("Location: ../html/forms/signup.html");
+
+    }
+
+    // Creates password hash
     $contraseñaHash = password_hash($contraseña, PASSWORD_DEFAULT);
 
-    // Generar una foto de perfil aleatoria
+    // Adds a random profile pciture
     $defaultPhotos = [
         '../../media/defaultProfilePictures/person1.jpg',
         '../../media/defaultProfilePictures/person2.jpg',
@@ -28,16 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $fotoPerfil = $defaultPhotos[array_rand($defaultPhotos)];
 
-    // Generar un código único para el usuario
+    // Generates random user code
     $userCode = uniqid();
 
-    // Insertar datos en la tabla de usuarios, incluyendo el userCode
-    $sql = "INSERT INTO Usuarios (email, nombre_usuario, contraseña, idROL, bio, fotoPerfil, fechaCreacionCuenta, pais, ultimaActividad, userCode) 
+    // Inserts data in DB
+    $sql = "INSERT INTO usuarios (email, nombre_usuario, contraseña, idROL, bio, fotoPerfil, fechaCreacionCuenta, pais, ultimaActividad, userCode) 
             VALUES (?, ?, ?, 2, '', ?, NOW(), '', NOW(), ?)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$email, $nombre, $contraseñaHash, $fotoPerfil, $userCode]);
 
-    // Redirigir a la página de inicio u otra página
+    // Heads user to another page
     header("Location: ../html/index.php");
     exit;
 }

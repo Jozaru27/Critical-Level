@@ -2,27 +2,27 @@
 session_start();
 require_once "../../php/database.php";
 
-// Verificar si el usuario ha iniciado sesión
+// Check if the user is logged in
 if (!isset($_SESSION['usuario_email'])) {
     header("Location: ../forms/login.html");
     exit;
 }
 
-// Obtener el email del usuario de la sesión
+// Get the user's email from the session
 $email = $_SESSION['usuario_email'];
 
-// Buscar los datos del usuario en la base de datos
-$sql = "SELECT * FROM Usuarios WHERE email = ?";
+// Fetch user data from the database
+$sql = "SELECT * FROM usuarios WHERE email = ?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$email]);
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$usuario) {
-    echo "Usuario no encontrado";
+    echo "User not found";
     exit;
 }
 
-// Determinar el rol del usuario y asignar el badge correspondiente
+// Determine the user's role and assign the corresponding badge
 $rol = $usuario['idROL'];
 $badgeText = '';
 $badgeClass = '';
@@ -31,32 +31,18 @@ if ($rol == 1) {
     $badgeText = 'Admin';
     $badgeClass = 'text-bg-danger'; // Red for Admin
 } elseif ($rol == 2) {
-    $badgeText = 'Usuario';
+    $badgeText = 'User';
     $badgeClass = 'text-bg-primary'; // Blue for User
 } elseif ($rol == 3) {
     $badgeText = 'Premium';
     $badgeClass = 'text-bg-warning'; // Yellow for Premium
 }
 
-// Consultar el número de reseñas del usuario
-$stmt_reseñas_count = $pdo->prepare("SELECT COUNT(*) AS count FROM Reseñas WHERE email = ?");
+// Query the number of reviews submitted by the user
+$stmt_reseñas_count = $pdo->prepare("SELECT COUNT(*) AS count FROM reseñas WHERE email = ?");
 $stmt_reseñas_count->execute([$email]);
 $numReseñas = $stmt_reseñas_count->fetchColumn();
 
-// // Función para mostrar las estrellas de valoración usando imágenes
-// function mostrarEstrellas($valoracion) {
-//     $estrellas = '';
-//     $goldStar = "../../media/rating_icons/goldStar.png";
-//     $voidStar = "../../media/rating_icons/voidStar.png";
-//     for ($i = 1; $i <= 5; $i++) {
-//         if ($i <= $valoracion) {
-//             $estrellas .= '<img src="' . $goldStar . '" alt="Estrella dorada" style="width: 20px; height: 20px;">';
-//         } else {
-//             $estrellas .= '<img src="' . $voidStar . '" alt="Estrella vacía" style="width: 20px; height: 20px;">';
-//         }
-//     }
-//     return $estrellas;
-// }
 ?>
 
 <!doctype html>
@@ -85,7 +71,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
       <span></span>
     
       <!-- Logo -->
-      <a href="../../index.html" class="menu-logo">
+      <a href="../../../index.php" class="menu-logo">
         <img src="../../media/CL_Logo_Blue_Hex/CL_Logo_HD_White.png" alt="Landing Page"/>
       </a>
     
@@ -159,35 +145,35 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
         <h2>Reseñas del Usuario</h2>
         
         <?php
-        // Consultar las reseñas del usuario actual
-        $sql_reseñas = "SELECT * FROM Reseñas WHERE email = ?";
+        // Query reviews of the current user
+        $sql_reseñas = "SELECT * FROM reseñas WHERE email = ?";
         $stmt_reseñas = $pdo->prepare($sql_reseñas);
         $stmt_reseñas->execute([$email]);
         $reseñas_usuario = $stmt_reseñas->fetchAll(PDO::FETCH_ASSOC);
 
-        // Array para almacenar los IDs de juegos
+        // Array to store game IDs
         $idJuegos = [];
         foreach ($reseñas_usuario as $reseña) {
             $idJuegos[] = $reseña['idAPI'];
         }
 
-        // Realizar llamada a la API para obtener los títulos de los juegos
+        // Call API to get game titles
         $apiUrl = "https://api.rawg.io/api/games?key=" . $apiKey . "&ids=" . implode(',', $idJuegos);
         $response = file_get_contents($apiUrl);
         $data = json_decode($response, true);
 
-        // Crear un array asociativo de idAPI a título
+        // Create associative array from idAPI to game title
         $juegos = [];
         foreach ($data['results'] as $juego) {
             $juegos[$juego['id']] = $juego['name'];
         }
 
-        // Mostrar las reseñas del usuario junto con los títulos de los juegos
+        // Display user reviews along with game titles
         foreach ($reseñas_usuario as $reseña) {
             echo "<div class='review-container'>";
             echo "<p><strong>Juego:</strong> <a href='http://criticallevel.myddns.me/CriticalLevel/html/profiles/game.php?id=" . $reseña['idAPI'] . "'>" . htmlspecialchars($juegos[$reseña['idAPI']]) . "</a></p>";
 
-            // Mostrar estrellas de valoración
+            // Display rating stars
             echo "<p><strong>Valoración:</strong> ";
             for ($i = 1; $i <= 5; $i++) {
                 if ($i <= $reseña['valoración']) {
@@ -197,8 +183,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
                 }
             }
 
-            // echo "<p><strong>Valoración:</strong> " . mostrarEstrellas($reseña['valoración']) . "</p>";
-            // echo "<p><strong>Valoración:</strong> " . htmlspecialchars($reseña['valoración']) . "</p>";
+            // Display review text
             echo "<p><strong>Texto:</strong> " . nl2br(htmlspecialchars($reseña['texto'])) . "</p>";
             echo "<p><em>Fecha de Creación: " . htmlspecialchars($reseña['fecha_creación']) . "</em></p>";
             echo "</div>";
@@ -223,7 +208,6 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
                 <li><a href="../games.php">Juegos</a></li>
                 <li><a href="../eventos.html">Eventos</a></li>
                 <li><a href="../premium.html">Premium</a></li>
-                <!-- <li><a href="">Yuju [NULL]</a></li> -->
             </ul>
             </div>
 
@@ -232,9 +216,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
             <ul class="footer-links">
                 <li><a href="../legal/aboutus.html">Sobre Nosotros</a></li>
                 <li><a href="../forms/contactus.html">Contáctanos</a></li>
-                <!-- <li><a href="">Contribuir [NULL]</a></li> -->
                 <li><a href="../legal/privacypolicy.html">Política de Privacidad</a></li>
-                <!-- <li><a href="">Sitemap [NULL]</a></li> -->
             </ul>
             </div>
         </div>
@@ -261,7 +243,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
         </div>
     </footer>
 
-    <!-- Modal para Editar Perfil -->
+    <!-- Modal to Editar Perfil -->
     <div id="editModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -273,6 +255,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
                 <label for="pais">País:</label>
                 <select id="pais" name="pais">
                     <?php
+                    // Displays EU countries
                     $paisesUE = [
                         "Austria", "Bélgica", "Bulgaria", "Croacia", "Chipre", "República Checa",
                         "Dinamarca", "Estonia", "Finlandia", "Francia", "Alemania", "Grecia",
@@ -281,6 +264,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
                         "Eslovenia", "España", "Suecia"
                     ];
 
+                    // Loads them into selects
                     foreach ($paisesUE as $pais) {
                         $selected = ($usuario['pais'] == $pais) ? 'selected' : '';
                         echo "<option value=\"$pais\" $selected>$pais</option>";
@@ -294,7 +278,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
         </div>
     </div>
 
-    <!-- Modal para Confirmar Eliminación de Perfil -->
+    <!-- Modal to delete profile -->
     <div id="deleteModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -305,7 +289,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
     </div>
 
     <script>
-        // Modal de Editar Perfil
+        // Edit Profile Modal
         document.getElementById('editBtn').addEventListener('click', function() {
             document.getElementById('editModal').style.display = "block";
         });
@@ -336,7 +320,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
             xhr.send(formData);
         });
 
-        // Modal de Eliminar Perfil
+        // Delete Profile Modal
         document.getElementById('deleteProfileBtn').addEventListener('click', function() {
             document.getElementById('deleteModal').style.display = "block";
         });
@@ -351,6 +335,7 @@ $numReseñas = $stmt_reseñas_count->fetchColumn();
             }
         });
 
+        // Confirm delete button
         document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "../../php/deleteProfile.php", true);
