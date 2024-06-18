@@ -302,25 +302,25 @@ body {
 @media (max-width: 768px) {
     .games-container {
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px; /* Reduce the gap for smaller screens */
+        grid-gap: 10px; 
     }
 
     .game-card {
-        margin: 5px; /* Adjust margin for smaller screens */
+        margin: 5px; 
     }
 }
 
 @media (max-width: 480px) {
     .games-container {
         grid-template-columns: repeat(2, 1fr);
-        grid-gap: 10px; /* Reduce the gap for smaller screens */
+        grid-gap: 10px; 
     }
 
     .game-card {
-        margin: 5px; /* Adjust margin for smaller screens */
+        margin: 5px; 
     }
 
     .game-card img {
-        height: 100px; /* Smaller height for images on very small screens */
+        height: 100px; 
     }
 }

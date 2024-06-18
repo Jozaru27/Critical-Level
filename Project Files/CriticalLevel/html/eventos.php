@@ -5,6 +5,7 @@ require_once "../php/database.php";
 // Verifies if the user has logged in and its role
 $userLoggedIn = isset($_SESSION['usuario_email']);
 $userRole = null;
+$email = null;
 
 if ($userLoggedIn) {
     $email = $_SESSION['usuario_email'];

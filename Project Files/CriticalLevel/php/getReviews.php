@@ -52,7 +52,7 @@ $html = '';
 foreach ($reseñas as $reseña) {
     $estrellas = mostrarEstrellas($reseña['valoración']);
     
-    // Ajusta la ruta de la imagen de perfil para que sea relativa desde el directorio del script PHP
+    // Adjust image path 
     $fotoPerfil = '../media/profilePics/' . basename($reseña['fotoPerfil']);
     
     $gameName = fetchGameName($reseña['idAPI']);

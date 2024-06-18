@@ -7,12 +7,13 @@ const baseUrl = 'https://api.rawg.io/api';
 // Function to obtain different stats from the API
 async function getInitialStats() {
   try {
-    //API fetch for games and genres
+    //API fetch for games and genres, using a promise so all both fetch can be completed and displayed simultaneously 
     const [gamesResponse, genresResponse] = await Promise.all([
       fetch(`${baseUrl}/games?key=${apiKey}`),
       fetch(`${baseUrl}/genres?key=${apiKey}`)
     ]);
 
+    // Stores the response
     const gamesData = await gamesResponse.json();
     const genresData = await genresResponse.json();
 
@@ -55,7 +56,7 @@ async function getDbStats() {
   }
 }
 
-// Quote Array
+// Array that stores quotes
 const frasesOpiniones = [
   "La opinión es la mitad del saber. - Séneca",
   "Las opiniones son como los clavos: cuanto más se golpean, más penetran. - Voltaire",
@@ -70,7 +71,7 @@ const frasesOpiniones = [
   "Las opiniones son privadas, pero la verdad es pública. - Thomas Hobbes"
 ];
 
-// Function that displays a random quote everytime the page is loaded, from the ones stored in an array
+// Function that displays a random quote everytime the page is loaded, from the ones stored in the upper array
 function mostrarFraseAleatoria() {
   const indiceAleatorio = Math.floor(Math.random() * frasesOpiniones.length);
   const fraseAleatoria = frasesOpiniones[indiceAleatorio];
