@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Function to load random game!
     function loadRandomGame() {
-        fetch('https://api.rawg.io/api/games?key=3493dbf3242341fb9284060b456efb79&dates=2019-09-01,2019-09-30&platforms=18,1,7')
+        fetch('https://api.rawg.io/api/games?key=&dates=2019-09-01,2019-09-30&platforms=18,1,7')
             .then(response => {
                 if (response.ok) {
                     return response.json();
