@@ -1,13 +1,13 @@
 <?php
-// Database Credentials
+// Database Credentials - Some are left empty to the public for security reasons
 $servername = "viaduct.proxy.rlwy.net"; 
 $username = "root"; 
-$password = "vhTGmYIlouBonLSUjxsBEbGpatrburAn";  
+$password = "";  
 $dbname = "railway"; 
 $port = "36410";
 
 // Api key
-$apiKey = "3493dbf3242341fb9284060b456efb79";
+$apiKey = "";
 
 // If the connection is successful, it will display so, if not, it shall show a denial message
 try {
