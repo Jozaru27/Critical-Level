@@ -1,4 +1,4 @@
-const apiKey = '3493dbf3242341fb9284060b456efb79';
+const apiKey = '';
 
 // Function to make the API call to RAWG
 function fetchData() {
