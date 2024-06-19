@@ -7,7 +7,7 @@ if (!isset($_GET['id'])) {
 }
 
 $gameId = $_GET['id'];
-$apiKey = '3493dbf3242341fb9284060b456efb79';
+$apiKey = '';
 $gameDetailsUrl = "https://api.rawg.io/api/games/{$gameId}?key={$apiKey}";
 
 // Obtain game details from API
