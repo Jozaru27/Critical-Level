@@ -41,7 +41,7 @@ function mostrarEstrellas($valoracion) {
 
 // Function to fetch the game name using the game API ID
 function fetchGameName($idAPI) {
-    $apiKey = '3493dbf3242341fb9284060b456efb79';
+    $apiKey = '';
     $response = file_get_contents("https://api.rawg.io/api/games/{$idAPI}?key={$apiKey}");
     $data = json_decode($response, true);
     return $data['name'] ?? 'un juego';
