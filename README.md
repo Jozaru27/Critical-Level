@@ -11,7 +11,7 @@ Critical Level is a web project in which I aspire to create, through my vision, 
 The page will work as a IMDB-like service, in which people can either check other people's opinions or analysis on videogames, while also having the oportunity to express themselves to other people, and to discuss different aspects.
 
 > [!WARNING]
-> This project is still being worked on, and so it's its documentation. Please be patient as stuff might be confusing at first!
+> This project is finalised and won't be worked on for now!
 
 ![](https://github.com/Jozaru27/Critical-Level/blob/main/media/separator.png)
 
